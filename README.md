@@ -1,24 +1,58 @@
-# README
+# アプリケーション名
+メンテマッチ
+# アプリケーション概要
+車のメンテナンスをお願いしたいユーザーと事業者をマッチングさせるアプリケーション。
+# テスト用アカウント
+・Basic認証パスワード：
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・Basic認証ID：
 
-Things you may want to cover:
+・メールアドレス：
 
-* Ruby version
+・パスワード：
+# 利用方法
 
-* System dependencies
+#  アプリケーションを作成した背景
+本アプリケーションが想定しているユーザーは20〜30代女性、地方在住。フリマアプリやSNS、マッチングアプリを生活の一部として利用している。一方で地方では生活インフラでもある車の利用において、日常のメンテナンスや法定点検においてもっと便利に利用できないかと思うことがある。しかしどこに整備をお願いして良いかわからないうえに、近所にある自動車整備工場は何となく入りにくいと感じている。
 
-* Configuration
+もう一方の想定ユーザーとして、自動車整備事業者である。一度来店してもらえればリピーターになってもらえる自信はあるものの、一見のお客様に来店いただく機会はほぼない。それならばと新規顧客を開拓したい思いはあるが、広告宣伝には多くのお金をかけられない。
 
-* Database creation
+本アプリケーションは整備をお願いしたい自動車ユーザーと新規顧客を獲得したい整備事業者をマッチングさせることで両者の課題を解決し新たな価値を提供するサービスである。
+# 洗い出した要件
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/11ZqIWbNBLNjQHEk0jdfggdj8fal9LYr11Ym6hH31bC4/edit#gid=982722306)
+# 実装した機能についての画像やGIFおよびその説明
 
-* Database initialization
+# 実装予定の機能
 
-* How to run the test suite
+# データベース設計
 
-* Services (job queues, cache servers, search engines, etc.)
+# 画面遷移図
 
-* Deployment instructions
+# 開発環境
+・フロントエンド：Html, css
 
-* ...
+・バックエンド：Ruby
+
+・フレームワーク：Ruby on Rails
+
+・データベース：MySQL
+
+・インフラ：AWS (EC2)
+
+・テスト：RSpec
+
+・テキストエディタ：Visual Studio Code
+
+・タスク管理：GitHub
+# ローカルでの動作方法
+以下のコマンドを順に実行。
+
+% git clone https://github.com/XXXXXXXX
+
+% cd XXXXXXX
+
+% bundle install
+
+% yarn install
+# 工夫したポイント
+
