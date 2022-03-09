@@ -31,9 +31,9 @@
 # 開発環境
 ・フロントエンド：Html, css
 
-・バックエンド：Ruby
+・バックエンド：Ruby v2.6.5
 
-・フレームワーク：Ruby on Rails
+・フレームワーク：Ruby on Rails v6.0.4.6
 
 ・データベース：MySQL
 
