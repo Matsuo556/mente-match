@@ -1,0 +1,54 @@
+
+
+<body class="text-center">
+<%= form_with model: @user, url: user_registration_path, class: 'form-signin', local: true do |f| %>
+
+    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <%= f.text_field :nickname, type:"nickname", class:"form-control", id:"floatingNickname", placeholder:"Nickname", maxlength:"40" %>
+      <label for="floatingNickname">Nickname</label>
+    </div>
+    <div class="form-floating">
+      <%= f.email_field :email, type:"email", class:"form-control", id:"floatingEmail", placeholder:"Email" %>
+      <label for="floatingEmail">Email</label>
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password, type:"password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, type:"password_confirmation", class:"form-control", id:"floatingPasswordConfirmation", placeholder:"Password_confirmation" %>
+      <label for="floatingPasswordConfirmation">Password confirmation</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :last_name, type:"last_name", class:"form-control", id:"floatingLastName", placeholder:"last_name" %>
+      <label for="floatingLastName">Last name</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :first_name, type:"first_name", class:"form-control", id:"floatingFirstName", placeholder:"first_name" %>
+      <label for="floatingFirstName">First name</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :last_name_kana, type:"last_name_kana", class:"form-control", id:"floatingLastNameKana", placeholder:"last_name_kana" %>
+      <label for="loatingLastNameKana">Last name kana</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :first_name_kana, type:"first_name_kana", class:"form-control", id:"floatingFirstNameKana", placeholder:"first_name_kana" %>
+      <label for="floatingFirstNameKana">FIrst name kana</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :phone_number, type:"phone_number", class:"form-control", id:"floatingPhoneNumber", placeholder:"phone_number" %>
+      <label for="floatingPhoneNumber">Phone number</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  <% end %>
+</body>
