@@ -8,8 +8,11 @@
     <h1 class="h3 mb-3 fw-normal">ログイン</h1>
     <div class="form-top">
 
-    <%= render partial:'users/shared/error_messages', locals: { model: f.object } %>
-
+  <div class='login-flash-message'>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+  </div>
+  
     <div class="form-floating">
       <%= f.email_field :email, type:"email", class:"form-control", id:"floatingEmail", placeholder:"Email" %>
       <label for="floatingEmail">Email</label>
@@ -27,7 +30,7 @@
       <%# </label> %>
     <%# </div> %>
     <%# <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button> %>
-    <%= f.submit "新規登録する" ,class:"w-100 btn btn-lg btn-primary" %>
+    <%= f.submit "ログイン" ,class:"w-100 btn btn-lg btn-primary" %>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   <% end %>
 </div>
