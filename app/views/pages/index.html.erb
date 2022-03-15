@@ -22,13 +22,13 @@
             </li>
           </ul>
           <ul class='lists-right'>
-            <%# <% if user_signed_in? %>
-              <%# <li><%= link_to current_user.nickname, "#", class: "user-nickname" </li>  %>
-              <%# <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"</li>  %>
-            <%# else %>
+            <% if user_signed_in? %>
+             <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>  
+            <% else %>
               <li><%= link_to 'ログイン', root_path, class: "login" %></li>
               <li><%= link_to '新規登録', root_path, class: "sign-up" %></li>
-            <%# end %> 
+            <% end %> 
           </ul>
           <%# <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
