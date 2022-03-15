@@ -45,10 +45,13 @@
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <%# <input type="checkbox" value="remember-me">  %>
+        <%= f.check_box value: "remember-me" %>
+        Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    <%# <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button> %>
+    <%= f.submit "新規登録する" ,class:"w-100 btn btn-lg btn-primary" %>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   <% end %>
 </div>
