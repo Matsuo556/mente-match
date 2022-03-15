@@ -44,11 +44,6 @@ html,
   border-top-right-radius: 0;
 }
 
-.form-signin input[type="password_confirmation"] {
-  margin-bottom: -1px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
 
 .form-signin input[type="last_name"] {
   margin-bottom: -1px;
@@ -80,3 +75,7 @@ html,
   border-top-right-radius: 0;
 }
 
+.btn-primary {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}

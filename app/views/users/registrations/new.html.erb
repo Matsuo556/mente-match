@@ -2,13 +2,19 @@
 
 <div class="text-center">
 <%= form_with model: @user, url: user_registration_path, class: 'form-signin', local: true do |f| %>
-
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <%= link_to '仮ボタン TOPへ戻る', '/'%>
+    <%# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
     <h1 class="h3 mb-3 fw-normal">ユーザー情報登録</h1>
+    <div class="form-top">
 
+    <%= render partial:'users/shared/error_messages', locals: { model: f.object } %>
+
+    <div>
     <div class="form-floating">
       <%= f.text_field :nickname, type:"nickname", class:"form-control", id:"floatingNickname", placeholder:"Nickname", maxlength:"40" %>
       <label for="floatingNickname">ニックネーム</label>
+    </div>
+    </div>
     </div>
     <div class="form-floating">
       <%= f.email_field :email, type:"email", class:"form-control", id:"floatingEmail", placeholder:"Email" %>
@@ -19,7 +25,7 @@
       <label for="floatingPassword">パスワード</label>
     </div>
     <div class="form-floating">
-      <%= f.password_field :password_confirmation, type:"password_confirmation", class:"form-control", id:"floatingPasswordConfirmation", placeholder:"Password_confirmation" %>
+      <%= f.password_field :password_confirmation, type:"password", class:"form-control", id:"floatingPasswordConfirmation", placeholder:"Password_confirmation" %>
       <label for="floatingPasswordConfirmation">パスワード確認</label>
     </div>
     <div class="form-floating">
@@ -43,13 +49,14 @@
       <label for="floatingPhoneNumber">電話番号</label>
     </div>
 
-    <div class="checkbox mb-3">
-      <label>
+
+    <%# <div class="checkbox mb-3"> %>
+      <%# <label> %>
         <%# <input type="checkbox" value="remember-me">  %>
-        <%= f.check_box value: "remember-me" %>
-        Remember me
-      </label>
-    </div>
+        <%# <%= f.check_box value: "remember-me" %>
+        <%# Remember me %>
+      <%# </label> %>
+    <%# </div> %>
     <%# <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button> %>
     <%= f.submit "新規登録する" ,class:"w-100 btn btn-lg btn-primary" %>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>

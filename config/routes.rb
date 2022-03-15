@@ -4,11 +4,18 @@ Rails.application.routes.draw do
     #passwords:     'biz_users/passwords',
     #registrations: 'biz_users/registrations'
   }
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  # ユーザー登録失敗後に/usersではなく/users/sign_upへ遷移させる
+  devise_scope :users do
+    get '/users', to: redirect("/users/sign_up")
+  end
+
   get 'pages/index'
   root to: 'pages#index'
+
 end
