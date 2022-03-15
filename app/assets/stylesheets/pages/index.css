@@ -1,8 +1,14 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
+/* 
 body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+} */
+
+.top-page-body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
@@ -31,7 +37,20 @@ body {
   text-decoration: none;
   padding: 0.5rem;
   color: whitesmoke
+}
 
+.user-page {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: whitesmoke
+}
+
+.logout {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: whitesmoke
 }
 
 .top-img {

@@ -1,44 +1,45 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">メンテマッチ</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">マッチング</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" >予約</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">事業者マッチング</a>
-          </li>
-        </ul>
-        <ul class='lists-right'>
-          <%# <% if user_signed_in? %>
-            <%# <li><%= link_to current_user.nickname, "#", class: "user-nickname" </li>  %>
-            <%# <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"</li>  %>
-          <%# else %>
-            <li><%= link_to 'ログイン', root_path, class: "login" %></li>
-            <li><%= link_to '新規登録', root_path, class: "sign-up" %></li>
-          <%# end %> 
-        </ul>
-        <%# <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> %>
+ <div class="top-page-body">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">メンテマッチ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">マッチング</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" >予約</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">事業者マッチング</a>
+            </li>
+          </ul>
+          <ul class='lists-right'>
+            <% if user_signed_in? %>
+             <li><%= link_to current_user.nickname, "#", class: "user-page" %></li>
+             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>  
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+              <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+            <% end %> 
+          </ul>
+          <%# <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> %>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-<main>
+  <main>  
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -180,4 +181,6 @@
     <p class="float-end"><a href="#">Back to top</a></p>
     <p>&copy; 2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
-</main>
+
+  </main>
+</div>

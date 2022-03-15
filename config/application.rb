@@ -15,5 +15,8 @@ module MenteMatch
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    #フォーム入力内容に謝りがあった場合に自動生成されるfield_with_errorsクラスを防ぐために追記
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
