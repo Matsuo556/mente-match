@@ -37,7 +37,20 @@ body {
   text-decoration: none;
   padding: 0.5rem;
   color: whitesmoke
+}
 
+.user-page {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: whitesmoke
+}
+
+.logout {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: whitesmoke
 }
 
 .top-img {
