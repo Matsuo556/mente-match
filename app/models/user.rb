@@ -13,5 +13,9 @@ class User < ApplicationRecord
    validates :first_name_kana,  format: { with: /\A[ァ-ヶー－]+\z/, message: '全角(カタカナ)で入力して下さい' }
    validates :phone_number,     numericality: { only_integer: true, message: 'is invalid. Input half-width number except hyphen(-)' }, length: { minimum: 10, maximum: 11, message: 'does not fit in setting count.' }
   end
+
+  validates :nickname,          uniqueness: true
   
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角で英字と数字の両方を含めて設定してください'
 end
