@@ -12,7 +12,7 @@
     <%= flash[:notice] %>
     <%= flash[:alert] %>
   </div>
-  
+
     <div class="form-floating">
       <%= f.email_field :email, type:"email", class:"form-control", id:"floatingEmail", placeholder:"Email" %>
       <label for="floatingEmail">Email</label>
@@ -31,6 +31,7 @@
     <%# </div> %>
     <%# <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button> %>
     <%= f.submit "ログイン" ,class:"w-100 btn btn-lg btn-primary" %>
+    <%= link_to '事業者の方はこちら', new_biz_user_session_path %>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   <% end %>
 </div>
