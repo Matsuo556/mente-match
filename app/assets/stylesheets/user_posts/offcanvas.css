@@ -6,9 +6,10 @@
   padding-top: 56px;
 } */
 
-.contailner {
+.container {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
   padding-top: 56px;
+  margin-top: 2rem;
 }
 
 @media (max-width: 991.98px) {
