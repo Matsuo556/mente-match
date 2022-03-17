@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_091613) do
   create_table "user_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "requested_at", null: false
     t.integer "menu_id", null: false
-    t.text "commnet"
+    t.text "comment"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
