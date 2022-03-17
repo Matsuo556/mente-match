@@ -117,12 +117,13 @@
     </div>
 
 <% end %>
-
-
-    <small class="d-block text-end mt-3">
-      <a href="#">All updates</a>
+<div class='page-nate-container'>
+<%= paginate @user_posts, theme: 'bootstrap-5' %>
+</div>
+    <%# <small class="d-block text-end mt-3"> %>
+      <%# <a href="#">All updates</a> %>
       <%#  link_to 'Next', '#', class:"" %>
-    </small>
+    <%# </small> %>
   </div>
 
   <%# <div class="my-3 p-3 bg-body rounded shadow-sm">

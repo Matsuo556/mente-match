@@ -75,3 +75,11 @@
   padding: 0;
   margin: 0;
 }
+
+.page-nate-container {
+  margin-top: 2rem;
+
+}
+.pagination {
+  justify-content: center;
+}
