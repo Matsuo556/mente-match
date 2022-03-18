@@ -84,3 +84,26 @@
 .pagination {
   justify-content: center;
 }
+
+.no-items {
+  margin-top: 1rem;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0.5rem 0.5rem 0rem;
+
+}
+
+#q_menu_id_eq {
+  height: 2.5rem;
+  width: 100%;
+  margin-right: 2rem;
+
+}
+
+.btn-outline-success {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
