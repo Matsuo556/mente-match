@@ -12,8 +12,14 @@
     <h6 class="border-bottom pb-2 mb-0">検索結果</h6>
 
     <%= search_form_for @q, url: search_user_posts_path, html: {id: "detailed-search-form"} do |f| %>
-        
-        <div class="search-field">
+        <div class="date-search">
+          <%= f.label :requested_at, 'メンテ依頼日' %>
+          <%= f.date_field :requested_at_gteq, class: 'date-form' %>
+          〜
+          <%= f.date_field :requested_at_lteq_end_of_day, class: 'date-form' %>
+
+        </div>
+        <div class="menu-search">
           <%= f.label :category_id_eq, 'メンテナンスメニュー' %>
           <%= f.collection_select(:menu_id_eq, Menu.where.not(id: 1), :id, :name, {prompt: "選択してください"}) %>
         </div>
@@ -55,7 +61,7 @@
 
     </div>
       <small class="d-block text-end mt-3">
-        <%=  link_to '投稿一覧へ戻る', user_posts_path, class:"return-posts-index" %>
+        <%=  link_to '全ての結果を表示', user_posts_path, class:"return-posts-index" %>
       </small>
     </div>
 
