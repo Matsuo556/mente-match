@@ -68,3 +68,7 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+gem 'active_hash'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+gem 'ransack'

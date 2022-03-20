@@ -1,46 +1,6 @@
  <div class="top-page-body">
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">メンテマッチ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">マッチング</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" >予約</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">事業者マッチング</a>
-            </li>
-          </ul>
-          <ul class='lists-right'>
-            <% if user_signed_in? %>
-             <li><%= link_to current_user.nickname, "#", class: "user-page" %></li>
-             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-             <% elsif biz_user_signed_in? %>
-             <li><%= link_to current_biz_user.name, "#", class: "user-page" %></li>
-             <li><%= link_to 'ログアウト', destroy_biz_user_session_path, method: :delete, class: "logout" %></li>
-            <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-              <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-            <% end %> 
-          </ul>
-          <%# <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> %>
-        </div>
-      </div>
-    </nav>
-  </header>
+
+ <%= render "shared/header" %>
 
   <main>  
 
@@ -111,7 +71,8 @@
 
         <h2>マッチングする</h2>
         <p>車のメンテナンス依頼を投稿したい方はこちら</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <p><%= link_to '投稿をチェック', user_posts_path, class:"btn btn-secondary" %></p>
+
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
