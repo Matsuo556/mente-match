@@ -15,6 +15,7 @@
         <div class="date-search">
           <%= f.label :requested_at, 'メンテ依頼日' %>
           <%= f.date_field :requested_at_gteq, class: 'date-form' %>
+          <%#= f.date_field :requested_at_date_eq, class: 'date-form' %>
           〜
           <%= f.date_field :requested_at_lteq_end_of_day, class: 'date-form' %>
 
