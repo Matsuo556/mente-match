@@ -1,4 +1,5 @@
 class UserPostsController < ApplicationController
+before_action :authenticate_user!, only: [:new]
 
 def index
   @user_posts = UserPost.includes(:user).order("created_at DESC").page(params[:page]).per(10)
@@ -19,6 +20,23 @@ def search
 end
 
 def new
+  @user_post = UserPost.new
+end
+
+def create
+  @user_post = UserPost.new(user_post_params)
+    if @user_post.save
+      redirect_to action: :index
+    else
+      render :new
+    end
+end
+
+
+private
+
+def user_post_params
+  params.require(:user_post).permit(:requested_at, :menu_id, :comment).merge(user_id: current_user.id)
 end
 
 
