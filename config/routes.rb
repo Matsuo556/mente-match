@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'pages/index'
   root to: 'pages#index'
   
-  resources :user_posts, only: [:index, :new] do
+  resources :user_posts, only: [:index, :new, :create] do
     collection do
       get 'search'
     end

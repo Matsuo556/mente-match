@@ -19,6 +19,10 @@ def search
 end
 
 def new
+  @user_post = UserPost.new
+end
+
+def create
 end
 
 

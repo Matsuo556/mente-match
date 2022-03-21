@@ -1,0 +1,62 @@
+
+
+<div class="text-center">
+<%= form_with model: @user_post,class: 'form-signin', local: true do |f| %>
+    <%= link_to '仮ボタン TOPへ戻る', '/'%>
+    <%# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
+    <h1 class="h3 mb-3 fw-normal">ユーザー情報登録</h1>
+    <div class="form-top">
+
+    <%= render partial:'users/shared/error_messages', locals: { model: f.object } %>
+
+    <div class="form-floating">
+      <%= f.text_field :nickname, type:"nickname", class:"form-control", id:"floatingNickname", placeholder:"Nickname", maxlength:"40" %>
+      <label for="floatingNickname">ニックネーム</label>
+    </div>
+    </div>
+    <div class="form-floating">
+      <%= f.email_field :email, type:"email", class:"form-control", id:"floatingEmail", placeholder:"Email" %>
+      <label for="floatingEmail">Email</label>
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password, type:"password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+      <label for="floatingPassword">パスワード</label>
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, type:"password", class:"form-control", id:"floatingPasswordConfirmation", placeholder:"Password_confirmation" %>
+      <label for="floatingPasswordConfirmation">パスワード確認</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :last_name, type:"last_name", class:"form-control", id:"floatingLastName", placeholder:"last_name" %>
+      <label for="floatingLastName">名字(全角)</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :first_name, type:"first_name", class:"form-control", id:"floatingFirstName", placeholder:"first_name" %>
+      <label for="floatingFirstName">名前(全角)</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :last_name_kana, type:"last_name_kana", class:"form-control", id:"floatingLastNameKana", placeholder:"last_name_kana" %>
+      <label for="loatingLastNameKana">名字カナ(全角)</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :first_name_kana, type:"first_name_kana", class:"form-control", id:"floatingFirstNameKana", placeholder:"first_name_kana" %>
+      <label for="floatingFirstNameKana">名前カナ(全角)</label>
+    </div>
+    <div class="form-floating">
+      <%= f.text_field :phone_number, type:"phone_number", class:"form-control", id:"floatingPhoneNumber", placeholder:"phone_number" %>
+      <label for="floatingPhoneNumber">電話番号</label>
+    </div>
+
+
+    <%# <div class="checkbox mb-3"> %>
+      <%# <label> %>
+        <%# <input type="checkbox" value="remember-me">  %>
+        <%# <%= f.check_box value: "remember-me" %>
+        <%# Remember me %>
+      <%# </label> %>
+    <%# </div> %>
+    <%# <button class="w-100 btn btn-lg btn-primary" type="submit">新規登録する</button> %>
+    <%= f.submit "新規登録する" ,class:"w-100 btn btn-lg btn-primary" %>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  <% end %>
+</div>
