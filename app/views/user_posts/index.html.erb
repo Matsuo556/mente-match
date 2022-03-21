@@ -1,6 +1,13 @@
 <%= render "shared/header" %>
 
+<% unless biz_user_signed_in? %>
+<div class='new-match-post-btn-container'>
+<%= link_to "マッチング投稿する", new_user_post_path, class: "btn btn-success btn-lg new-match-post-btn" %>
+</div>
+<% end %>
+
 <div class="container">
+
   <div class="d-flex align-items-center p-3 my-3 text-white bg-gray rounded shadow-sm">
     <img class="me-3" src="../assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">
     <div class="lh-1">
@@ -128,6 +135,8 @@
     </small>
   </div> %>
 </div>
+
+
 
 
     <%# <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
