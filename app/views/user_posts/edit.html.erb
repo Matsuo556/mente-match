@@ -4,7 +4,7 @@
     <%# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
 
     <div class='page-explanation'>
-    <h1 class="h3 mb-3 fw-normal">マッチング要望内容を入力</h1>
+    <h1 class="h3 mb-3 fw-normal">マッチング要望内容を編集</h1>
     </div>
 
     <div class="form-top">
@@ -16,7 +16,6 @@
       <%# <%= f.date_field :requested_at, class:"post-content", id:"" %>
       <%# <%= f.time_field :requested_at, class:"post-content", id:"" %>
       <%= f.datetime_local_field :requested_at, class:"post-content", id:"" %>
-
     </div>
 
     <div class="post-field">
@@ -31,7 +30,7 @@
     </div>
 
 
-    <%= f.submit "マッチングを投稿する" ,class:"w-100 btn btn-lg btn-primary" %>
+    <%= f.submit "投稿内容を更新する" ,class:"w-100 btn btn-lg btn-primary" %>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   <% end %>
 </div>

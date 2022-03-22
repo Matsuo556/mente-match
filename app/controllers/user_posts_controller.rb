@@ -36,6 +36,19 @@ def show
   @user_post = UserPost.find(params[:id])
 end
 
+def edit
+  @user_post = UserPost.find(params[:id])
+end
+
+def update
+  @user_post = UserPost.find(params[:id])
+  if @user_post.update(user_post_params)
+    redirect_to action: :show
+  else
+    render :edit
+  end
+end
+
 
 private
 
