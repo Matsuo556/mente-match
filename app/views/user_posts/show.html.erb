@@ -30,7 +30,7 @@
       <%# <% if current_user.id == @item.user_id %>
     <% if user_signed_in? && current_user.id == @user_post.user_id %>
         <%# <%= link_to "投稿の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-        <%= link_to "投稿の編集", '#', method: :get, class: "btn btn-outline-success" %>
+        <%= link_to "投稿の編集", edit_user_post_path,class: "btn btn-outline-success" %>
         <%# <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
         <%= link_to "削除", '#', method: :delete, class: "btn btn-outline-danger" %>
     <% end %>

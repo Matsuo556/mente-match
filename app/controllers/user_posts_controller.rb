@@ -36,6 +36,13 @@ def show
   @user_post = UserPost.find(params[:id])
 end
 
+def edit
+  @user_post = UserPost.find(params[:id])
+end
+
+def update
+end
+
 
 private
 
