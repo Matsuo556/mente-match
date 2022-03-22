@@ -49,6 +49,11 @@ def update
   end
 end
 
+def destroy
+  @user_post = UserPost.find(params[:id])
+  @user_post.destroy
+  redirect_to action: :index
+end
 
 private
 
