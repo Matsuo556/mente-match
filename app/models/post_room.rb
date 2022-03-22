@@ -1,0 +1,2 @@
+class PostRoom < ApplicationRecord
+end
