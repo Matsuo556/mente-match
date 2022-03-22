@@ -3,10 +3,13 @@
 <%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
-    <h2 class="name">
-      <%= @user_post.user.nickname %>
-      さんの投稿
-    </h2>
+    <div class= 'title-container'>
+      <h2 class="name">
+        <%= @user_post.user.nickname %>
+        さんの投稿
+      </h2>
+        <%= link_to '戻る', :back, class:'btn btn-primary back-btn'  %>
+    </div>
 
     <table class="detail-table">
         <tr>
@@ -42,7 +45,8 @@
 
   </div>
 
-<%= link_to '戻る', :back, class:'btn btn-primary'  %>
-
+<div class='move-btn'>
+  <%= link_to 'マッチングTOPへ', user_posts_path, class:'btn btn-primary'  %>
+</div>
 
 </div>

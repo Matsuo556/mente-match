@@ -13,8 +13,10 @@
 
     <div class="post-field">
       <%= f.label :requested_at, 'メンテ依頼日', class: "post-label" %>
-      <%= f.date_field :requested_at, class:"post-content", id:"" %>
-      <%= f.time_field :requested_at, class:"post-content", id:"" %>
+      <%# <%= f.date_field :requested_at, class:"post-content", id:"" %>
+      <%# <%= f.time_field :requested_at, class:"post-content", id:"" %>
+      <%= f.datetime_local_field :requested_at, class:"post-content", id:"" %>
+
     </div>
 
     <div class="post-field">
