@@ -44,6 +44,7 @@
               <%# <li><%= user_post.comment %>
               <li><%= truncate(user_post.comment,length: 50) %></li>
             </ul>
+            <%= link_to '詳細を見る', user_post_path(user_post.id) %>
           </div>
         </div>
 

@@ -1,0 +1,88 @@
+/* 商品の概要 */
+
+.item-show {
+  background-color: #f8f8f8;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.item-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 800px;
+  padding: 10vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-box>.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+.edit-delete-btn {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn.btn-outline-danger {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+@media  (max-width: 480px) {
+
+  .item-box {
+    width: 100vw;
+    min-width: 480px;
+    padding: 10vh 15vw;
+  }
+
+  .detail-table {
+    margin-left: 10vw;
+  }
+
+.detail-table th,
+.detail-table td {
+    width: 100%;
+    display: block;
+  }
+
+.detail-table th {
+    width: 100%;
+  }
+
+.detail-table td {
+    padding-top: 0;
+    padding: 4px 12px;
+
+ }
+}
