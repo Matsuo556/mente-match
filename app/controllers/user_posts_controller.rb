@@ -33,7 +33,7 @@ def create
 end
 
 def show
-  
+  @user_post = UserPost.find(params[:id])
 end
 
 
