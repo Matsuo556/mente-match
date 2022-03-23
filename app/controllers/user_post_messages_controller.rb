@@ -1,0 +1,2 @@
+class UserPostMessagesController < ApplicationController
+end

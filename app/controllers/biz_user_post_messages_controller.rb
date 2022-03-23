@@ -1,0 +1,2 @@
+class BizUserPostMessagesController < ApplicationController
+end

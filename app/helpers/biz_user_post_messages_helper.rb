@@ -1,0 +1,2 @@
+module BizUserPostMessagesHelper
+end

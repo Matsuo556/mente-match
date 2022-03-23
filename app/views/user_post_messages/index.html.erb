@@ -87,16 +87,8 @@
         </div>
 
 <div>
-  <% if current_user == @post_room.user %>
-    <%= form_with url:user_post_post_room_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-      <%= f.text_field :content, class: '', id:'', placeholder:'コメント'%>
-      <%= f.submit '送信', class:'btn btn-light' %>
-    <% end %>
-  <% end %>
-  <% if current_biz_user == @post_room.biz_user %>
-    <%= form_with url:user_post_post_room_biz_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-      <%= f.text_field :content, class: '', id:'', placeholder:'コメント'%>
-      <%= f.submit '送信', class:'btn btn-light' %>
-    <% end %>
-  <% end %>
+  <%# <%= form_with model: @user_post_message, local: true do |f| %> %>
+    <%# <%= f.text_field :content, class: '', id:'', placeholder:'コメント'%> %>
+    <%# <%= f.submit '送信', class:'btn btn-light' %> %>
+  <%# <% end %> %>
 </div>
