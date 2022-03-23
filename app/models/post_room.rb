@@ -3,8 +3,8 @@ class PostRoom < ApplicationRecord
   belongs_to :user
   belongs_to :biz_user
 
-  validates :user_post_id
-  validates :user_id
-  validates :biz_user_id
+  validates :user_post_id,  presence: true
+  validates :user_id,       presence: true
+  validates :biz_user_id,   presence: true
 
 end

@@ -40,13 +40,18 @@
     </div>
 
     <% if biz_user_signed_in? %>
-        <%= link_to "マッチングを申し込む", '#' ,class:"btn btn-success btn-lg"%>
+      <%= form_with model: [@user_post, @post_room], local: true do |f| %>
+      <%= f.submit "マッチングを申し込む", class:"btn btn-danger btn-lg" %>
+      <%= f.hidden_field :user_id, value: @user_post.user.id %>
+      <%# <%= link_to "マッチングを申し込む", user_post_post_rooms_path(@post_room.id), class:"btn btn-success btn-lg"%>
+      <% end %>
     <% end %>
+
 
   </div>
 
-<div class='move-btn'>
-  <%= link_to 'マッチングTOPへ', user_posts_path, class:'btn btn-primary'  %>
-</div>
+  <div class='move-btn'>
+    <%= link_to 'マッチングTOPへ', user_posts_path, class:'btn btn-primary'  %>
+  </div>
 
 </div>

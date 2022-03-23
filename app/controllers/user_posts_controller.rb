@@ -1,5 +1,5 @@
 class UserPostsController < ApplicationController
-before_action :authenticate_user!, only: [:new]
+before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
 def index
   @user_posts = UserPost.includes(:user).order("created_at DESC").page(params[:page]).per(10)
@@ -34,6 +34,7 @@ end
 
 def show
   @user_post = UserPost.find(params[:id])
+  @post_room = PostRoom.new
 end
 
 def edit

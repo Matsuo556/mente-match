@@ -1,0 +1,2 @@
+module PostRoomsHelper
+end
