@@ -1,0 +1,2 @@
+class BizUserPostMessage < ApplicationRecord
+end

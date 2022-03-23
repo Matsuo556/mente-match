@@ -1,0 +1,2 @@
+class UserPostMessage < ApplicationRecord
+end
