@@ -5,5 +5,6 @@ class BizUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :post_rooms
+  has_many :biz_user_post_messages
   
 end

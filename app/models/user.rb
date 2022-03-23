@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :user_posts
   has_many :post_rooms
+  has_many :user_post_messages
 
   with_options presence: true do
    validates :nickname
