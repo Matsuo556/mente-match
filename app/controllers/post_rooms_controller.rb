@@ -5,9 +5,7 @@ class PostRoomsController < ApplicationController
 
 
   def create
-    post_room = PostRoom.new(post_room_params)
-    binding.pry
-    PostRoom.create!(post_room_params)
+    PostRoom.create(post_room_params)
     redirect_to root_path
   end
 
