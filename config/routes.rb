@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :post_rooms, only: [:create, :index]
   end
 
 end
