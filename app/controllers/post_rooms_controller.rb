@@ -6,7 +6,9 @@ class PostRoomsController < ApplicationController
 
   def create
     PostRoom.create(post_room_params)
-    redirect_to root_path
+    user_post = UserPost.find(params[:user_post_id])
+    redirect_to  user_post_post_rooms_path(user_post.id)
+
   end
 
   private
