@@ -50,7 +50,7 @@ aside {
   max-width: 868px;
   margin: 15px auto;
   font-size: 14px;
-  background: #88b3f7;
+  /* background: #88b3f7; */
   height: 100%;
 }
 
@@ -103,3 +103,29 @@ aside {
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
+
+.top-box {
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+.first-box {
+  height: 75vh;
+  background: #88b3f7;
+
+}
+
+.text-area {
+background-color: gainsboro;
+height: 7rem;
+text-align: center;
+padding-top: 2.5rem;
+position: fixed;
+width: 100vw;
+
+}
+
+.text-field {
+ width: 60%;
+ height: 40px;
+  }

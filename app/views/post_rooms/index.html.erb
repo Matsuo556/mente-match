@@ -1,102 +1,112 @@
-        <div class='cantainer-fluid'>
-          <div class="row">
-            <!-- article -->
-            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <!-- section -->
-              <section class='back-ground'>
+ <%= render "shared/header" %>
 
-                <hr />
+<div class='cantainer-fluid top-box'>
+    <div class='cantainer-fluid first-box'>
+      <div class="row">
+        <!-- article -->
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <!-- section -->
+          <section class='back-ground'>
 
-                <!-- 投稿一覧 -->
-                <div class="line-bc">
-                  <!-- 右吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <div style="font-size: 12px; color: #fff">uname</div>
-                        <div style="font-size: 12px; color: #fff">uid</div>
-                      </div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="balloon2 float-end">こんにちは</div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <time style="font-size: 12px">
-                          2020-12-19 09:26:35
-                        </time>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 右吹き出し -->
+            <hr />
 
-                  <!-- 改行 -->
-                  <br />
-
-                  <!-- 左吹き出し -->
-                  <div>
+            <!-- 投稿一覧 -->
+            <div class="line-bc">
+            <% @user_post_messages.eack do |u| %>
+            <% @biz_user_post_messages.eack do |b| %>
+              <!-- 右吹き出し -->
+              <div>
+                <div class="clearfix">
+                  <div class="float-end">
                     <div style="font-size: 12px; color: #fff">uname</div>
                     <div style="font-size: 12px; color: #fff">uid</div>
-                    <div class="clearfix">
-                      <div class="balloon1 float-left">
-                        <a
-                          href="https://chat-line.netlify.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          >https://chat-line.netlify.app/</a
-                        >
-                      </div>
-                    </div>
-
-                    <div className="clearfix">
-                      <time style="font-size: 12px"> 2020-12-19 09:26:35 </time>
-                    </div>
                   </div>
-                  <br />
-
-                  <!-- 左吹き出し -->
-                  <!-- 右吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <div style="font-size: 12px; color: #fff">uname</div>
-                        <div style="font-size: 12px; color: #fff">uid</div>
-                      </div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="balloon2 float-end">こんにちは</div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <time style="font-size: 12px">
-                          2020-12-19 09:26:35
-                        </time>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 右吹き出し -->
-
                 </div>
-              </section>
-              <!-- section -->
-            </article>
-            <!-- article -->
+                <div class="clearfix">
+                  <div class="balloon2 float-end">こんにちは</div>
+                </div>
+                <div class="clearfix">
+                  <div class="float-end">
+                    <time style="font-size: 12px">
+                      2020-12-19 09:26:35
+                    </time>
+                  </div>
+                </div>
+              </div>
+              <!-- 右吹き出し -->
+
+              <!-- 改行 -->
+              <br />
+
+              <!-- 左吹き出し -->
+              <div>
+                <div style="font-size: 12px; color: #fff">uname</div>
+                <div style="font-size: 12px; color: #fff">uid</div>
+                <div class="clearfix">
+                  <div class="balloon1 float-left">
+                    <a
+                      href="https://chat-line.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >https://chat-line.netlify.app/</a
+                    >
+                  </div>
+                </div>
+
+                <div className="clearfix">
+                  <time style="font-size: 12px"> 2020-12-19 09:26:35 </time>
+                </div>
+              </div>
+              <br />
+
+              <!-- 左吹き出し -->
+              <!-- 右吹き出し -->
+              <div>
+                <div class="clearfix">
+                  <div class="float-end">
+                    <div style="font-size: 12px; color: #fff">uname</div>
+                    <div style="font-size: 12px; color: #fff">uid</div>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="balloon2 float-end">こんにちは</div>
+                </div>
+                <div class="clearfix">
+                  <div class="float-end">
+                    <time style="font-size: 12px">
+                      2020-12-19 09:26:35
+                    </time>
+                  </div>
+                </div>
+              </div>
+              <!-- 右吹き出し -->
+
+            </div>
+          </section>
+          <!-- section -->
+        </article>
+        <!-- article -->
 
 
-           </div>
         </div>
+    </div>
 
-<div>
-  <% if current_user == @post_room.user %>
-    <%= form_with url:user_post_post_room_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-      <%= f.text_field :content, class: '', id:'', placeholder:'コメント'%>
-      <%= f.submit '送信', class:'btn btn-light' %>
-    <% end %>
-  <% end %>
-  <% if current_biz_user == @post_room.biz_user %>
-    <%= form_with url:user_post_post_room_biz_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-      <%= f.text_field :content, class: '', id:'', placeholder:'コメント'%>
-      <%= f.submit '送信', class:'btn btn-light' %>
-    <% end %>
-  <% end %>
+
+    <div class='cantainer-fluid text-area'>
+
+      <% if current_user == @post_room.user %>
+        <%= form_with url:user_post_post_room_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
+          <%= f.text_field :content, class: 'content-field', id:'', placeholder:'コメント'%>
+          <%= f.submit '送信', class:'btn btn-light' %>
+        <% end %>
+      <% elsif current_biz_user == @post_room.biz_user %>
+        <%= form_with url:user_post_post_room_biz_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
+          <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
+          <%= f.submit '送信', class:'btn btn-light' %>
+        <% end %>
+      <% end %>
+
+    </div>
+
+
 </div>
