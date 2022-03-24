@@ -3,6 +3,8 @@ class PostRoomsController < ApplicationController
   def index
     @user_post = UserPost.find(params[:user_post_id])
     @post_room = PostRoom.find(@user_post.post_room.id)
+    # @user_post_messages = UserPostMessage.includes(:user).order("created_at ASC")
+    # @biz_user_post_messages = BizUserPostMessage.includes(:biz_user).order("created_at ASC")
   end
 
 
