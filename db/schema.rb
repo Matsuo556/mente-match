@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_063009) do
+ActiveRecord::Schema.define(version: 2022_03_25_053003) do
 
   create_table "biz_user_post_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2022_03_23_063009) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_biz_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_biz_users_on_reset_password_token", unique: true
+  end
+
+  create_table "post_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.boolean "is_user", null: false
+    t.bigint "post_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_room_id"], name: "index_post_messages_on_post_room_id"
   end
 
   create_table "post_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,6 +102,7 @@ ActiveRecord::Schema.define(version: 2022_03_23_063009) do
 
   add_foreign_key "biz_user_post_messages", "biz_users"
   add_foreign_key "biz_user_post_messages", "post_rooms"
+  add_foreign_key "post_messages", "post_rooms"
   add_foreign_key "post_rooms", "biz_users"
   add_foreign_key "post_rooms", "user_posts"
   add_foreign_key "post_rooms", "users"
