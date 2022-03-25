@@ -171,17 +171,17 @@
 
     <div class='cantainer-fluid text-area'>
 
-      <% if current_user == @post_room.user %>
-        <%= form_with url:user_post_post_room_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
+      <%# if current_user == @post_room.user %>
+        <%= form_with url:user_post_post_room_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
           <%= f.text_field :content, class: 'content-field', id:'', placeholder:'コメント'%>
           <%= f.submit '送信', class:'btn btn-light' %>
         <% end %>
-      <% elsif current_biz_user == @post_room.biz_user %>
-        <%= form_with url:user_post_post_room_biz_user_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-          <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
-          <%= f.submit '送信', class:'btn btn-light' %>
-        <% end %>
-      <% end %>
+      <%# elsif current_biz_user == @post_room.biz_user %>
+        <%#= form_with url:user_post_post_room_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
+          <%#= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
+          <%#= f.submit '送信', class:'btn btn-light' %>
+        <%# end %>
+      <%# end %>
 
     </div>
 
