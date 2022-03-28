@@ -1,0 +1,2 @@
+module UserPostMessagesHelper
+end

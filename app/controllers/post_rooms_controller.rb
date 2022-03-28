@@ -1,12 +1,27 @@
 class PostRoomsController < ApplicationController
 
   def index
+    @user_post = UserPost.find(params[:user_post_id])
+    @post_room = PostRoom.find(@user_post.post_room.id)
+    @post_messages = @post_room.post_messages
+    # @user_post_messages = @post_room.user_post_messages.includes(:user).order("created_at ASC")
+    # @biz_user_post_messages = @post_room.biz_user_post_messages.includes(:biz_user).order("created_at ASC")
+
+# binding.pry
+ 
+
   end
 
 
   def create
     PostRoom.create(post_room_params)
-    redirect_to root_path
+    user_post = UserPost.find(params[:user_post_id])
+    # user_post_messageコントローラーのinexアクションに送る場合のpost_room情報取得
+    # post_room = user_post.post_room
+    redirect_to  user_post_post_rooms_path(user_post.id)
+    # user_post_messageコントローラーのinexアクションに送る場合のパス
+    # redirect_to  user_post_post_room_user_post_messages_path(user_post.id, post_room.id)
+
   end
 
   private
