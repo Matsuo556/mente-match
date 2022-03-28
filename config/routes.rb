@@ -30,4 +30,9 @@ Rails.application.routes.draw do
 
   end
 
+  resources :users, only: :show
+
+  resources :biz_users, only: :show
+
+
 end
