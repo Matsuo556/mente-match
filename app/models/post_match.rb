@@ -1,0 +1,2 @@
+class PostMatch < ApplicationRecord
+end
