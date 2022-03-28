@@ -39,7 +39,7 @@
     <% end %>
     </div>
 
-    <% if biz_user_signed_in? %>
+    <% if biz_user_signed_in? && @user_post.post_room == nil %>
       <%= form_with model: [@user_post, @post_room], local: true do |f| %>
       <%= f.submit "マッチングを申し込む", class:"btn btn-danger btn-lg" %>
       <%= f.hidden_field :user_id, value: @user_post.user.id %>
