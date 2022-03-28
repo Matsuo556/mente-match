@@ -102,7 +102,7 @@
 詳細要件検討中
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/942e281cd2249ea7894bb755db8c623a.png)](https://gyazo.com/942e281cd2249ea7894bb755db8c623a)
+[![Image from Gyazo](https://i.gyazo.com/a91be6768435f86efa43343a32e1228c.png)](https://gyazo.com/a91be6768435f86efa43343a32e1228c)
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/4365c39a3ebf6c01586d3e00cb8a6bb5.png)](https://gyazo.com/4365c39a3ebf6c01586d3e00cb8a6bb5)
 
