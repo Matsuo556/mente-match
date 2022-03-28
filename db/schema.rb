@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_03_25_053003) do
 
-  create_table "biz_user_post_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "post_room_id", null: false
-    t.bigint "biz_user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["biz_user_id"], name: "index_biz_user_post_messages_on_biz_user_id"
-    t.index ["post_room_id"], name: "index_biz_user_post_messages_on_post_room_id"
-  end
-
   create_table "biz_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -61,16 +51,6 @@ ActiveRecord::Schema.define(version: 2022_03_25_053003) do
     t.index ["user_post_id"], name: "index_post_rooms_on_user_post_id"
   end
 
-  create_table "user_post_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "post_room_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_room_id"], name: "index_user_post_messages_on_post_room_id"
-    t.index ["user_id"], name: "index_user_post_messages_on_user_id"
-  end
-
   create_table "user_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "requested_at", null: false
     t.integer "menu_id", null: false
@@ -100,13 +80,9 @@ ActiveRecord::Schema.define(version: 2022_03_25_053003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "biz_user_post_messages", "biz_users"
-  add_foreign_key "biz_user_post_messages", "post_rooms"
   add_foreign_key "post_messages", "post_rooms"
   add_foreign_key "post_rooms", "biz_users"
   add_foreign_key "post_rooms", "user_posts"
   add_foreign_key "post_rooms", "users"
-  add_foreign_key "user_post_messages", "post_rooms"
-  add_foreign_key "user_post_messages", "users"
   add_foreign_key "user_posts", "users"
 end

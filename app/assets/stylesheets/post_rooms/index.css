@@ -26,6 +26,7 @@ aside {
 
 .back-ground {
   height: 100%;
+  width: 100%;
 }
 
 /* スマホ用 */
@@ -37,6 +38,11 @@ aside {
   aside {
     display: none;
   }
+
+  .text-area {
+    width: 100%;
+    margin: 0 ;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -48,10 +54,11 @@ aside {
 .line-bc {
   padding: 20px 10px;
   max-width: 868px;
-  margin: 15px auto;
-  font-size: 14px;
-  /* background: #88b3f7; */
-  height: 100%;
+  margin: 15px auto 0;
+  /* font-size: 14px; */
+  background: #88b3f7;
+  height: 82vh;
+  overflow: scroll;
 }
 
 /* 吹き出し左 */
@@ -59,8 +66,8 @@ aside {
   position: relative;
   padding: 10px;
   border-radius: 10px;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   max-width: 250px;
   font-size: 15px;
   word-wrap: break-word;
@@ -75,7 +82,7 @@ aside {
   top: 3px;
   left: -19px;
   border: 8px solid transparent;
-  border-right: 18px solid #000;
+  border-right: 18px solid #fff;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
@@ -105,13 +112,13 @@ aside {
 }
 
 .top-box {
-  height: 90vh;
-  padding-top: 10vh;
+  padding-top: 3vh;
 }
 
 .first-box {
-  height: 75vh;
-  background: #88b3f7;
+  height: 85vh;
+
+  /* background: #88b3f7; */
 
 }
 
@@ -120,8 +127,8 @@ background-color: gainsboro;
 height: 7rem;
 text-align: center;
 padding-top: 2.5rem;
-position: fixed;
-width: 100vw;
+max-width: 868px;
+margin: 0 auto;
 
 }
 
@@ -132,5 +139,4 @@ width: 100vw;
 
 .text-style {
   font-size: 12px;
-  color: #fff;
 }

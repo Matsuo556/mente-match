@@ -1,11 +1,10 @@
 <%= render "shared/header" %>
 
-  <div class='cantainer-fluid top-box'>
-    <div class='cantainer-fluid first-box'>
-      <div class="row">
-        <!-- article -->
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <!-- section -->
+<div class='cantainer-fluid top-box'>
+  <div class='cantainer-fluid first-box'>
+      <!-- article -->
+      <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <!-- section -->
           <section class='back-ground'>
 
             <hr />
@@ -13,177 +12,122 @@
             <!-- 投稿一覧 -->
             <div class="line-bc">
 
-          <%# if current_user.id == @post_room.user_id %>
+                <%# if current_user.id == @post_room.user_id %>
+              <% if user_signed_in? %>
 
-            <% @user_post_messages.each do |u| %>
-            <% @biz_user_post_messages.each do |b| %> 
+                <% @post_messages.each do |pm| %>
 
+                    <% if pm.is_user %>
+                        <!-- 右吹き出し -->
+                        <div>
+                          <div class="clearfix">
+                            <div class="float-end text-style">
+                              <%= @post_room.user.nickname %>
+                            </div>
+                          </div>
+                          <div class="clearfix balloon2 float-end">
+                            <%= pm.content %>
+                          </div>
+                          <div class="clearfix">
+                            <div class="float-end">
+                              <time style="font-size: 12px">
+                              <%= pm.created_at %>
+                              </time>
+                            </div>
+                          </div>
+                        </div>
+                        <br />
 
-            <% if u.created_at.before? b.created_at %>
-             <!-- 右吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-end text-style">
-                        <%= @post_room.user.nickname %>
-                      </div>
-                    </div>
-                    <div class="clearfix balloon2 float-end">
-                      <%= u.content %>
-                    </div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <time style="font-size: 12px">
-                        <%= u.created_at %>
-                        </time>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 右吹き出し -->
-            <% else %> 
-                  <!-- 左吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-start text-style">
-                        <%= @post_room.biz_user.name %>
-                      </div>
-                    </div>
-                    <div class="clearfix balloon2 float-start">
-                      <%= b.content %>
-                    </div>
+                        <!-- 右吹き出し -->
+                    <% elsif %> 
+                        <!-- 左吹き出し -->
+                        <div>
+                          <div class="clearfix">
+                            <div class="float-start text-style">
+                              <%= @post_room.biz_user.name %>
+                            </div>
+                          </div>
+                          <div class="clearfix balloon2 float-start">
+                            <%= pm.content %>
+                          </div>
+                          <div className="clearfix">
+                            <time style="font-size: 12px">
+                            <%= pm.created_at %>
+                            </time>
+                          </div>
+                        </div>
+                        <br />
+                        <!-- 左吹き出し -->
+                    <% end %> 
 
-                    <div className="clearfix">
-                      <time style="font-size: 12px">
-                      <%= b.created_at %>
-                      </time>
-                    </div>
-                  </div>
-                  <br />
-                  <!-- 左吹き出し -->
-            <% end %> 
-          <% end %> 
-        <% end %>
+                <% end %>
 
+              <% elsif biz_user_signed_in?%> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <% @biz_user_post_messages.each do |b| %> 
-                <%# <% if u.created_at < b.created_at %> 
-                <!-- 右吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-end text-style">
-                        <%= @post_room.biz_user.name %>
-                      </div>
-                    </div>
-                    <div class="clearfix balloon2 float-end">
-                      <%= b.content %>
-                    </div>
-                    <div class="clearfix">
-                      <div class="float-end">
-                        <time style="font-size: 12px">
-                        <%= b.created_at %>
-                        </time>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 右吹き出し -->
-                <%# <% else %> 
-                  <!-- 左吹き出し -->
-                  <div>
-                    <div class="clearfix">
-                      <div class="float-start text-style">
-                        <%= @post_room.biz_user.name %>
-                      </div>
-                    </div>
-                    <div class="clearfix balloon2 float-start">
-                      <%= b.content %>
-                    </div>
-
-                    <div className="clearfix">
-                      <time style="font-size: 12px">
-                      <%= b.created_at %>
-                      </time>
-                    </div>
-                  </div>
-                  <br />
-                  <!-- 左吹き出し -->
-                <%# end %> 
-
-            <% end %> 
-   
-
-
-
-              <!-- 改行 -->
-              <br />
-
-              
-              <!-- 右吹き出し -->
-              <div>
-                <div class="clearfix">
-                  <div class="float-end">
-                    <div style="font-size: 12px; color: #fff">uname</div>
-                    <div style="font-size: 12px; color: #fff">uid</div>
-                  </div>
-                </div>
-                <div class="clearfix">
-                  <div class="balloon2 float-end">こんにちは</div>
-                </div>
-                <div class="clearfix">
-                  <div class="float-end">
-                    <time style="font-size: 12px">
-                      2020-12-19 09:26:35
-                    </time>
-                  </div>
-                </div>
-              </div>
-              <!-- 右吹き出し -->
-
+                <% @post_messages.each do |pm| %>
+                    <% if pm.is_user %>
+                    <!-- 左吹き出し -->
+                          <div>
+                            <div class="clearfix">
+                              <div class="float-start text-style">
+                                <%= @post_room.user.nickname %>
+                              </div>
+                            </div>
+                            <div class="clearfix balloon1 float-start">
+                              <%= pm.content %>
+                            </div>
+                            <div className="clearfix">
+                              <time style="font-size: 12px">
+                              <%= pm.created_at %>
+                              </time>
+                            </div>
+                          </div>
+                          <br />
+                          <!-- 左吹き出し -->
+                    <% elsif %> 
+                          <!-- 右吹き出し -->
+                          <div>
+                            <div class="clearfix">
+                              <div class="float-end text-style">
+                                <%= @post_room.biz_user.name %>
+                              </div>
+                            </div>
+                            <div class="clearfix balloon2 float-end">
+                              <%= pm.content %>
+                            </div>
+                            <div class="clearfix">
+                              <div class="float-end">
+                                <time style="font-size: 12px">
+                                <%= pm.created_at %>
+                                </time>
+                              </div>
+                            </div>
+                          </div>
+                          <br />
+                          <!-- 右吹き出し -->
+                    <% end %> 
+                <% end %>
+              <% end %>
+          
             </div>
           </section>
           <!-- section -->
         </article>
         <!-- article -->
 
+      <div class='text-area'>
 
+          <%= form_with url:user_post_post_room_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
+            <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
+            <%= f.submit '送信', class:'btn btn-light' %>
+          <% end %>
+      
       </div>
-    </div>
-
-
-    <div class='cantainer-fluid text-area'>
-
-      <%# if current_user == @post_room.user %>
-        <%= form_with url:user_post_post_room_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-          <%= f.text_field :content, class: 'content-field', id:'', placeholder:'コメント'%>
-          <%= f.submit '送信', class:'btn btn-light' %>
-        <% end %>
-      <%# elsif current_biz_user == @post_room.biz_user %>
-        <%#= form_with url:user_post_post_room_post_messages_path(@user_post.id, @post_room.id), local: true do |f| %>
-          <%#= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
-          <%#= f.submit '送信', class:'btn btn-light' %>
-        <%# end %>
-      <%# end %>
-
-    </div>
-
 
   </div>
+
+
+  
+
+
+</div>
