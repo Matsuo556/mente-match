@@ -124,6 +124,21 @@
       
       </div>
 
+      <div>
+        <%#= form_with model: @post_match, local: true do |f|%>
+          <%#= f.submit 'マッチングする', class: "btn btn-danger" %>
+        <%# end %>
+
+        <%#= form_with model: [@user_post, @post_room], local: true do |f| %>
+          <%#= f.hidden_field :post_room_id, value: @post_room.id %>
+          <%#= f.submit 'マッチング不成立', class: "btn btn-dark" %>
+        <%# end %>
+
+        <%= link_to 'マッチング不成立', user_post_post_room_path(@user_post.id, @post_room.id), method: :delete, class: "btn btn-dark" %>
+        
+      </div>
+
+
   </div>
 
 
