@@ -81,7 +81,7 @@
               <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
             </div>
             <div>
-              <h2><%= link_to post_match.menu.name, user_post_post_room_post_match_path(post_match.post_room.id, post_match.id) %>のマッチング</h2>
+              <h2><%= link_to post_match.menu.name, user_post_post_room_post_match_path(post_match.post_room.user_post.id, post_match.post_room.id, post_match.id) %>のマッチング</h2>
               <p><%= post_match.comment %></p>
             </div>
           </div>
