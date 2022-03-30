@@ -14,5 +14,6 @@ class Menu < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :user_posts
+  has_many :post_matches
 
   end

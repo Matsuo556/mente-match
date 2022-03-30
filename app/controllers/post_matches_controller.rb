@@ -1,10 +1,6 @@
 class PostMatchesController < ApplicationController
 
 
-  def index
-  end
-
-
   def new
     @user_post = UserPost.find(params[:user_post_id])
     @post_room = PostRoom.find(params[:post_room_id])
@@ -16,6 +12,10 @@ class PostMatchesController < ApplicationController
     unless @post_match.save
       render :new
     end
+  end
+
+  def show
+    @post_matchs = PostMatch.all.order("created_at DESC")
   end
 
 

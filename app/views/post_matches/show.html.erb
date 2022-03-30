@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <div class= 'title-container'>
+      <h2 class="name">
+        <%= @user_post.user.nickname %>
+        さんの投稿
+      </h2>
+        <%= link_to '戻る', :back, class:'btn btn-primary back-btn'  %>
+    </div>
+
+    <table class="detail-table">
+        <tr>
+          <th class="detail-item">メンテ要望日時</th>
+          <td class="detail-value"><%= @user_post.requested_at %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メンテメニュー</th>
+          <td class="detail-value"><%= @user_post.menu[:name] %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @user_post.comment %></td>
+        </tr>
+    </table>
+
+
+    
+    <div class='edit-delete-btn'>
+    <%# <% if user_signed_in? && @item.purchase_record == nil %>
+      <%# <% if current_user.id == @item.user_id %>
+    <% if user_signed_in? && current_user.id == @user_post.user_id %>
+        <%# <%= link_to "投稿の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+        <%= link_to "投稿の編集", edit_user_post_path,class: "btn btn-outline-success" %>
+        <%# <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
+        <%= link_to "削除", user_post_path, method: :delete, class: "btn btn-outline-danger" %>
+    <% end %>
+    </div>
+
+    <% if biz_user_signed_in? && @user_post.post_room == nil %>
+      <%= form_with model: [@user_post, @post_room], local: true do |f| %>
+      <%= f.submit "マッチングを申し込む", class:"btn btn-danger btn-lg" %>
+      <%= f.hidden_field :user_id, value: @user_post.user.id %>
+      <%# <%= link_to "マッチングを申し込む", user_post_post_rooms_path(@post_room.id), class:"btn btn-success btn-lg"%>
+      <% end %>
+    <% end %>
+
+
+  </div>
+
+  <div class='move-btn'>
+    <%= link_to 'マッチングTOPへ', user_posts_path, class:'btn btn-primary'  %>
+  </div>
+
+</div>

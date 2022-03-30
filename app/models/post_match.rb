@@ -1,6 +1,8 @@
 class PostMatch < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :post_room
+  belongs_to :menu
+
 
   validates :maintain_at,  presence: true
   validates :charge,       presence: true, numericality: { only_integer: true, message: 'is invalid. Input half-width number.' }
