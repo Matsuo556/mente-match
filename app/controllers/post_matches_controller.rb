@@ -15,7 +15,7 @@ class PostMatchesController < ApplicationController
   end
 
   def show
-    @post_matchs = PostMatch.all.order("created_at DESC")
+    @post_match = PostMatch.find(params[:id])
   end
 
 
