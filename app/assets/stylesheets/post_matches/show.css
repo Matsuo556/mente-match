@@ -3,3 +3,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.top-box-match-show {
+  padding-top: 3vh;
+  width: 100%;
+}
