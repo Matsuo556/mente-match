@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_080408) do
 
   create_table "post_matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "maintain_at", null: false
+    t.integer "menu_id", null: false
+    t.text "comment"
     t.integer "charge", null: false
     t.bigint "post_room_id", null: false
     t.datetime "created_at", precision: 6, null: false
