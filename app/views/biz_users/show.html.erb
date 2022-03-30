@@ -50,16 +50,20 @@
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <% @post_rooms.each do |post_room| %>
         <% if post_room.biz_user.id == current_biz_user.id %>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-              <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+          <% if post_room.post_match %>
+           <p>現在申し込み中のマッチングはありません</p>
+          <% else %>
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+              </div>
+              <div>
+                <h2><%= link_to post_room.user.nickname, user_post_path(post_room.user_post.id) %>さんの投稿</h2>
+                <p><%= post_room.user_post.menu.name%></p>
+                <%= link_to 'チャットルームへ', user_post_post_rooms_path(post_room.user_post.id),  class:"btn btn-primary" %>
+              </div>
             </div>
-            <div>
-              <h2><%= link_to post_room.user.nickname, user_post_path(post_room.user_post.id) %>さんの投稿</h2>
-              <p><%= post_room.user_post.menu.name%></p>
-              <%= link_to 'チャットルームへ', user_post_post_rooms_path(post_room.user_post.id),  class:"btn btn-primary" %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>     
     </div>
