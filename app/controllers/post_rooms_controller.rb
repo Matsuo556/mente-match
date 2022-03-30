@@ -16,7 +16,6 @@ class PostRoomsController < ApplicationController
   def destroy
     @post_room = PostRoom.find(params[:id])
     @post_room.destroy
-    binding.pry
     redirect_to user_path(current_user.id)
   end
 

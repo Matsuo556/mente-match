@@ -108,12 +108,20 @@
                     <% end %> 
                 <% end %>
               <% end %>
-          
+
+              <br />
+              <% if user_signed_in? %>
+              <div>
+                <%= link_to 'マッチング成立', new_user_post_post_room_post_match_path(@user_post.id, @post_room.id),  class: "btn btn-danger" %>
+                <%= link_to 'マッチング不成立', user_post_post_room_path(@user_post.id, @post_room.id), method: :delete, class: "btn btn-dark" %>
+              </div>
+              <% end %>
             </div>
           </section>
           <!-- section -->
         </article>
         <!-- article -->
+
 
       <div class='text-area'>
 
@@ -121,17 +129,12 @@
             <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
             <%= f.submit '送信', class:'btn btn-light' %>
           <% end %>
+
+
       
       </div>
 
-      <div>
-        <%#= form_with model: @post_match, local: true do |f|%>
-          <%#= f.submit 'マッチングする', class: "btn btn-danger" %>
-        <%# end %>
-        <%= link_to 'マッチング成立', new_user_post_post_room_post_match_path(@user_post.id, @post_room.id),  class: "btn btn-danger" %>
-        <%= link_to 'マッチング不成立', user_post_post_room_path(@user_post.id, @post_room.id), method: :delete, class: "btn btn-dark" %>
 
-      </div>
 
 
   </div>
