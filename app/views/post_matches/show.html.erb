@@ -8,7 +8,7 @@
         <%= @post_match.post_room.biz_user.name %>さんへのメンテ依頼
         <% end %>
         <% if biz_user_signed_in? %>
-        <%= @post_match.post_room.user.name %>さんからのメンテ依頼
+        <%= @post_match.post_room.user.nickname %>さんからのメンテ依頼
         <% end %>
       </h2>
         <%= link_to '戻る', :back, class:'btn btn-primary back-btn'  %>
@@ -35,14 +35,15 @@
 
 
     
-    <div class='edit-delete-btn'>
-    <%# <% if user_signed_in? && @item.purchase_record == nil %>
-      <%# <% if current_user.id == @item.user_id %>
-    <% if biz_user_signed_in? && current_biz_user.id == @post_match.post_room.biz_user_id %>
-        <%= link_to "マッチング内容の修正", edit_user_post_path,class: "btn btn-outline-success" %>
-        <%= link_to "マッチングを削除", user_post_path, method: :delete, class: "btn btn-outline-danger" %>
-    <% end %>
+    <div class='match-edit-delete-btn'>
+      <%# <% if user_signed_in? && @item.purchase_record == nil %>
+        <%# <% if current_user.id == @item.user_id %>
+      <% if biz_user_signed_in? && current_biz_user.id == @post_match.post_room.biz_user_id %>
+          <%= link_to "マッチング内容の修正", edit_user_post_path,class: "btn btn-outline-success" %>
+          <%= link_to "マッチングを削除", user_post_path, method: :delete, class: "btn btn-outline-danger" %>
+      <% end %>
     </div>
+    
   </div>
 
 
