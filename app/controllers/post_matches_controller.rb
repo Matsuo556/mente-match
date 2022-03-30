@@ -16,6 +16,8 @@ class PostMatchesController < ApplicationController
 
   def show
     @post_match = PostMatch.find(params[:id])
+    @post_room = PostRoom.find(params[:post_room_id])
+    @post_messages = @post_room.post_messages
   end
 
 
