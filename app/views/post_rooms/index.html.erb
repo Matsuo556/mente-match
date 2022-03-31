@@ -14,6 +14,9 @@
 
                 <%# if current_user.id == @post_room.user_id %>
               <% if user_signed_in? %>
+              <div class='index-chat-mypage'>
+                <%= link_to 'マイページ', user_path(current_user.id),  class: "btn btn-primary" %>
+              </div>
 
                 <% @post_messages.each do |pm| %>
 
@@ -63,6 +66,10 @@
                 <% end %>
 
               <% elsif biz_user_signed_in?%> 
+
+              <div class='index-chat-mypage'>
+                <%= link_to 'マイページ', biz_user_path(current_biz_user.id),  class: "btn btn-primary" %>
+              </div>
 
                 <% @post_messages.each do |pm| %>
                     <% if pm.is_user %>
