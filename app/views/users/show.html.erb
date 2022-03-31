@@ -51,9 +51,9 @@
 
       <% @user_posts.each do |user_post| %>
         <% if user_post.user_id == current_user.id %>
-          <% if user_post.post_room.post_match %>
-            <p>現在投稿はありません</p>
-          <% else %>
+          <% if user_post.post_room&.post_match %>
+            <%# <p>現在投稿はありません</p> %>
+          <% else%>
             <div class="col d-flex align-items-start">
               <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>

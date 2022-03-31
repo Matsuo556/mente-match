@@ -51,7 +51,6 @@
       <% @post_rooms.each do |post_room| %>
         <% if post_room.biz_user.id == current_biz_user.id %>
           <% if post_room.post_match %>
-           <p>現在申し込み中のマッチングはありません</p>
           <% else %>
             <div class="col d-flex align-items-start">
               <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
