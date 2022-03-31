@@ -1,7 +1,16 @@
 <%= render "shared/header" %>
 
-<div class="item-show">
-  <div class="item-box">
+<div class="match-show">
+  <div class="item-box match-box">
+    <div class='back-to-mypage'>
+        <% if user_signed_in?%>
+          <%= link_to 'マイページへ', user_path(current_user.id), class:'btn btn-primary back-btn'  %>
+        <% end %>
+        <% if biz_user_signed_in?%>
+          <%= link_to 'マイページへ', biz_user_path(current_biz_user.id), class:'btn btn-primary back-btn'  %>
+        <% end %>
+
+    </div>
     <div class= 'title-container'>
       <h2 class="name">
         <% if user_signed_in? %>
@@ -11,7 +20,6 @@
         <%= @post_match.post_room.user.nickname %>さんからのメンテ依頼
         <% end %>
       </h2>
-        <%= link_to '戻る', :back, class:'btn btn-primary back-btn'  %>
     </div>
 
     <table class="detail-table">
@@ -76,7 +84,7 @@
                               <div class="clearfix">
                                 <div class="float-end">
                                   <time style="font-size: 12px">
-                                  <%= pm.created_at %>
+                                  <%= pm.created_at.strftime('%m-%d %H:%M') %>
                                   </time>
                                 </div>
                               </div>
@@ -92,12 +100,13 @@
                                   <%= @post_room.biz_user.name %>
                                 </div>
                               </div>
-                              <div class="clearfix balloon2 float-start">
+                              <div class="clearfix balloon1 float-start">
                                 <%= pm.content %>
                               </div>
-                              <div className="clearfix">
+                              <br />
+                              <div class="clearfix">
                                 <time style="font-size: 12px">
-                                <%= pm.created_at %>
+                                <%= pm.created_at.strftime('%m-%d %H:%M') %>
                                 </time>
                               </div>
                             </div>
@@ -121,10 +130,12 @@
                                 <div class="clearfix balloon1 float-start">
                                   <%= pm.content %>
                                 </div>
-                                <div className="clearfix">
-                                  <time style="font-size: 12px">
-                                  <%= pm.created_at %>
-                                  </time>
+                                <div class="clearfix">
+                                  <div class="float-start">
+                                    <time style="font-size: 12px">
+                                    <%= pm.created_at.strftime('%m-%d %H:%M') %>
+                                    </time>
+                                  </div>
                                 </div>
                               </div>
                               <br />
@@ -143,7 +154,7 @@
                                 <div class="clearfix">
                                   <div class="float-end">
                                     <time style="font-size: 12px">
-                                    <%= pm.created_at %>
+                                    <%= pm.created_at.strftime('%m-%d %H:%M') %>
                                     </time>
                                   </div>
                                 </div>
