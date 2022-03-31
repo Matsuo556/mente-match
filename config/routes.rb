@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
     resources :post_rooms, only: [:create, :index, :destroy] do
         resources :post_messages, only: [:create]
-        resources :post_matches, only: [:new, :create, :show]
+        resources :post_matches, only: [:new, :create, :show, :edit, :update]
     end
 
   end

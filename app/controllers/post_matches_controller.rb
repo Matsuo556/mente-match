@@ -20,6 +20,23 @@ class PostMatchesController < ApplicationController
     @post_messages = @post_room.post_messages
   end
 
+  def edit
+    @user_post = UserPost.find(params[:user_post_id])
+    @post_room = PostRoom.find(params[:post_room_id])
+    @post_match = PostMatch.find(params[:id])
+  end
+
+  def update
+    @post_match = PostMatch.find(params[:id])
+    if @post_match.update(post_match_params)
+      redirect_to action: :show
+    else
+      @user_post = UserPost.find(params[:user_post_id])
+      @post_room = PostRoom.find(params[:post_room_id])
+      render :edit
+    end
+  end
+
 
   private
 
