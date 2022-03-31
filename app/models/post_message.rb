@@ -1,5 +1,5 @@
 class PostMessage < ApplicationRecord
-  belongs_to :post_room, dependent: :destroy
+  belongs_to :post_room
 
   validates :content,       presence: true
   validates :is_user,       inclusion: { in: [true, false] }

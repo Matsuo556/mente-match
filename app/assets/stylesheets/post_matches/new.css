@@ -1,0 +1,15 @@
+.price-box{
+  display:flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+
+.price-content{
+height: calc(3.5rem + 2px);
+line-height: 1.25;
+margin: 1rem 0;
+padding-left: 0.5rem;
+width: 100%;
+}
+

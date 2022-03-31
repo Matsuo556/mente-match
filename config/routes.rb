@@ -22,10 +22,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :post_rooms, only: [:create, :index] do
+    resources :post_rooms, only: [:create, :index, :destroy] do
         resources :post_messages, only: [:create]
-      # resources :user_post_messages, only: [:index, :create]
-      # resources :biz_user_post_messages, only: [:index, :create]
+        resources :post_matches, only: [:new, :create, :show, :edit, :update]
     end
 
   end

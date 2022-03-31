@@ -1,0 +1,32 @@
+.match-edit-delete-btn{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.top-box-match-show {
+  padding-top: 3vh;
+  width: 100vw;
+}
+
+.match-show {
+  /* background-color: #f8f8f8; */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.match-box{
+  border: 1px solid #C8C9CA;
+}
+
+.back-to-mypage {
+  width: 100%;
+  height: 5rem;
+  text-align: right;
+}
+
+
