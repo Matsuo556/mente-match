@@ -34,12 +34,14 @@
     </table>
 
 
-    <%# if user_signed_in? %>
-      <%#= form_with model: [@user_post, @book_room], local: true do |f| %>
-      <%#= f.submit "マッチングを申し込む", class:"btn btn-danger btn-lg" %>
+    <% if user_signed_in? %>
+      <%#= form_with model: @book, local: true do |f| %>
+      <%#= f.submit "予約を申し込む", class:"btn btn-danger btn-lg" %>
       <%#= f.hidden_field :user_id, value: @user_post.user.id %>
+      <%= link_to '予約を申し込む', new_book_path, class:'btn btn-danger btn-lg'  %>
+
       <%# end %>
-    <%# end %>
+    <% end %>
 
 
   </div>

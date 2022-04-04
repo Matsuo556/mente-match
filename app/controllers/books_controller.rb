@@ -29,4 +29,24 @@ class BooksController < ApplicationController
     @biz_user = BizUser.find(params[:id])
   end
 
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to action: :index
+    else
+      render :new
+    end
+  end
+
+
+  private
+
+  def book_params
+    params.require(:book).permit(:requested_at, :menu_id, :comment).merge(user_id: current_user.id)
+  end
+
 end
