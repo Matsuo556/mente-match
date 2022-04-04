@@ -25,5 +25,8 @@ class BooksController < ApplicationController
     binding.pry
   end
 
+  def show
+    @biz_user = BizUser.find(params[:id])
+  end
 
 end

@@ -42,7 +42,7 @@
               <li><%= biz_user.prefecture %></li>
               <li><%= biz_user.city %></li>
             </ul>
-            <%= link_to '詳細を見る', '#' %>
+            <%= link_to '詳細を見る', book_path(biz_user.id) %>
           </div>
         </div>
     <% end %>

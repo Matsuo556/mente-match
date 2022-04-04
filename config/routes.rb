@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :biz_users, only: :show
 
-  resources :books, only: [:index] do
+  resources :books, only: [:index, :show] do
     collection do
       get 'search'
     end

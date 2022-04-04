@@ -1,0 +1,51 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <div class= 'title-container'>
+      <h2 class="name">
+        <%= @biz_user.name %>
+      </h2>
+        <%= link_to '戻る', :back, class:'btn btn-primary back-btn'  %>
+    </div>
+
+    <table class="detail-table">
+        <tr>
+          <th class="detail-item">都道府県</th>
+          <td class="detail-value"><%= @biz_user.prefecture %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">市区町村</th>
+          <td class="detail-value"><%= @biz_user.city %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">住所</th>
+          <td class="detail-value"><%= @biz_user.address %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">建物</th>
+          <td class="detail-value"><%= @biz_user.building %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">電話番号</th>
+          <td class="detail-value"><%= @biz_user.phone_number %></td>
+        </tr>
+    </table>
+
+
+    <%# if user_signed_in? %>
+      <%#= form_with model: [@user_post, @book_room], local: true do |f| %>
+      <%#= f.submit "マッチングを申し込む", class:"btn btn-danger btn-lg" %>
+      <%#= f.hidden_field :user_id, value: @user_post.user.id %>
+      <%# end %>
+    <%# end %>
+
+
+  </div>
+
+  <div class='move-btn'>
+    <%= link_to '予約TOPへ', books_path, class:'btn btn-primary'  %>
+  </div>
+
+</div>
