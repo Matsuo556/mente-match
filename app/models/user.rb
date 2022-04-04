@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :post_rooms
   has_many :user_post_messages
   has_many :books
+  has_many :book_rooms
 
   with_options presence: true do
    validates :nickname
