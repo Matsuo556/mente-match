@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_092542) do
+ActiveRecord::Schema.define(version: 2022_04_05_023241) do
 
   create_table "biz_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2022_04_04_092542) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_biz_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_biz_users_on_reset_password_token", unique: true
+  end
+
+  create_table "book_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.boolean "is_user", null: false
+    t.bigint "book_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_room_id"], name: "index_book_messages_on_book_room_id"
   end
 
   create_table "book_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,6 +123,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_092542) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "book_messages", "book_rooms"
   add_foreign_key "book_rooms", "biz_users"
   add_foreign_key "book_rooms", "books"
   add_foreign_key "book_rooms", "users"
