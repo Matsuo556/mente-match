@@ -36,7 +36,7 @@
     
     <div class='match-edit-delete-btn'>
       <% if user_signed_in? && current_user.id == @book.user_id %>
-          <%= link_to "予約内容の修正", '#', class: "btn btn-outline-success" %>
+          <%#= link_to "予約内容の修正", '#', class: "btn btn-outline-success" %>
           <%= link_to "予約を削除", '#', method: :delete, class: "btn btn-outline-danger" %>
       <% end %>
     </div>
