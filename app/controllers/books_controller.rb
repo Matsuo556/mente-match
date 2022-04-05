@@ -31,12 +31,14 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @biz_user = BizUser.find(params[:biz_user_id])
   end
 
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to action: :index
+      BookRoom.create(book_id: @book.id, user_id: @book.user_id, biz_user_id: @book.biz_user_id)
+      redirect_to  book_book_rooms_path(@book.id)
     else
       render :new
     end
@@ -46,7 +48,8 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:requested_at, :menu_id, :comment).merge(user_id: current_user.id)
+    params.require(:book).permit(:requested_at, :menu_id, :comment, :biz_user_id).merge(user_id: current_user.id, biz_user_id: params[:book][:biz_user_id])
   end
+
 
 end

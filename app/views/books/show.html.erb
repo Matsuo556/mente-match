@@ -35,12 +35,11 @@
 
 
     <% if user_signed_in? %>
-      <%#= form_with model: @book, local: true do |f| %>
-      <%#= f.submit "予約を申し込む", class:"btn btn-danger btn-lg" %>
-      <%#= f.hidden_field :user_id, value: @user_post.user.id %>
-      <%= link_to '予約を申し込む', new_book_path, class:'btn btn-danger btn-lg'  %>
-
-      <%# end %>
+      <%= form_with url: new_book_path, method: :get, local: true do |f| %>
+      <%= f.submit "予約を申し込む", class:"btn btn-danger btn-lg" %>
+      <%= f.hidden_field :biz_user_id, value: @biz_user.id %>
+      <%#= link_to '予約を申し込む', new_book_path, class:'btn btn-danger btn-lg'  %>
+      <% end %>
     <% end %>
 
 

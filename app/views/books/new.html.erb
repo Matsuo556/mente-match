@@ -30,6 +30,8 @@
       <%= f.text_area :comment, class:"post-content", placeholder:"依頼したい内容の詳細や個別のリクエスト、その他質問などがあれば記載します。" ,rows:"10" ,maxlength:"1000" %>
     </div>
 
+    <%= f.hidden_field :biz_user_id, value: @biz_user.id %>
+
 
     <%= f.submit "予約を申し込む" ,class:"w-100 btn btn-lg btn-primary" %>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>

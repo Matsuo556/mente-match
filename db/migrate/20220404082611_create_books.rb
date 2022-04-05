@@ -5,6 +5,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.integer    :menu_id,             null: false
       t.text       :comment
       t.references :user,                null: false, foreign_key: true
+      t.references :biz_user,            null: false, foreign_key: true
       t.timestamps
     end
   end

@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 2022_04_04_092542) do
     t.integer "menu_id", null: false
     t.text "comment"
     t.bigint "user_id", null: false
+    t.bigint "biz_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["biz_user_id"], name: "index_books_on_biz_user_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_092542) do
   add_foreign_key "book_rooms", "biz_users"
   add_foreign_key "book_rooms", "books"
   add_foreign_key "book_rooms", "users"
+  add_foreign_key "books", "biz_users"
   add_foreign_key "books", "users"
   add_foreign_key "post_matches", "post_rooms"
   add_foreign_key "post_messages", "post_rooms"
