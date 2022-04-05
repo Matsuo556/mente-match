@@ -1,8 +1,9 @@
 class Book < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+  belongs_to :biz_user
   belongs_to :menu
-  has_one :post_room, dependent: :destroy
+  has_one :book_room, dependent: :destroy
 
   validates :requested_at, presence: true
   validates :user_id, presence: true
