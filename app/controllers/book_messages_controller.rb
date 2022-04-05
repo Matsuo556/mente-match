@@ -2,7 +2,6 @@ class BookMessagesController < ApplicationController
 
   def create
     @book_message = BookMessage.new(book_message_params)
-  binding.pry
     #メッセージがuserによるものだったらis_user=true, biz_userによるものだったらis_user=false
     if user_signed_in?
       @book_message.is_user = true
