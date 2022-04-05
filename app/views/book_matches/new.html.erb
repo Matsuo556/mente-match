@@ -1,0 +1,47 @@
+<div class="text-center">
+  <%= form_with model: [@book, @book_room, @book_match], class: 'new-post', local: true do |f| %>
+    <%= link_to '仮ボタン TOPへ戻る', '/'%>
+    <%# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
+
+    <div class='page-explanation'>
+    <h1 class="h3 mb-3 fw-normal">予約合意内容を入力</h1>
+    </div>
+
+    <div class="form-top">
+    <%= render partial:'users/shared/error_messages', locals: { model: f.object } %>
+    </div>
+
+    <div class="post-field">
+      <%= f.label :maintain_at, 'メンテ開始日時', class: "post-label" %>
+      <%= f.datetime_local_field :start, class:"post-content", id:"" %>
+    </div>
+
+    <div class="post-field">
+      <%= f.label :maintain_at, 'メンテ終了予定日時', class: "post-label" %>
+      <%= f.datetime_local_field :end, class:"post-content", id:"" %>
+    </div>
+
+    <div class="post-field" >
+      <%= f.label :menu_id, 'メンテナンスメニュー', class: "post-label" %>
+      <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"post-content", id:"menu-select-status"}) %>
+    </div>
+
+    <div class="post-field">
+      <%= f.label :comment, 'コメント', class: "post-label" %>
+      <%= f.text_area :comment, class:"post-content", placeholder:"その他メニューなど" ,rows:"10" ,maxlength:"1000" %>
+    </div>
+
+
+    <div class="post-field">
+      <%= f.label :charge, 'メンテ費用', class: "post-label" %>
+      <div class='price-box'>
+      <div class='sell-yen'>￥</div>
+      <%= f.text_field :charge, class:"price-content", placeholder:"合意した金額を入力(半角数字)" %>
+      </div>
+    </div>
+
+
+    <%= f.submit "予約内容を確定する" ,class:"w-100 btn btn-lg btn-primary" %>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  <% end %>
+</div>

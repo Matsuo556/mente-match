@@ -116,7 +116,7 @@
                               <div>
                                 <div class="clearfix">
                                   <div class="float-start text-style">
-                                    <%= @boom_room.user.nickname %>
+                                    <%= @book_room.user.nickname %>
                                   </div>
                                 </div>
                                 <div class="clearfix balloon1 float-start">
@@ -160,8 +160,8 @@
                   <br />
               <% if biz_user_signed_in? %>
                 <div>
-                  <%#= link_to '予約成立', new_user_post_post_room_post_match_path(@user_post.id, @post_room.id),  class: "btn btn-danger" %>
-                  <%#= link_to '予約不成立', user_post_post_room_path(@user_post.id, @post_room.id), method: :delete, class: "btn btn-dark" %>
+                  <%= link_to '予約成立', new_book_book_room_book_match_path(@book.id, @book_room.id),  class: "btn btn-danger" %>
+                  <%= link_to '予約不成立', book_path(@book.id), method: :delete, class: "btn btn-dark" %>
                 </div>
               <% end %>
       
