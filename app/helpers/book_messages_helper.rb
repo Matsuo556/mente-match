@@ -1,0 +1,2 @@
+module BookMessagesHelper
+end

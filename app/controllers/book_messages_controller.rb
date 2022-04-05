@@ -1,0 +1,4 @@
+class BookMessagesController < ApplicationController
+
+
+end

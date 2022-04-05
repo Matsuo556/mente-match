@@ -1,1 +1,176 @@
-book_room indexアクション
+<%= render "shared/header" %>
+
+<div class="match-show">
+  <div class="item-box match-box">
+    <div class='back-to-mypage'>
+        <% if user_signed_in?%>
+          <%= link_to 'マイページへ', user_path(current_user.id), class:'btn btn-primary back-btn'  %>
+        <% end %>
+        <% if biz_user_signed_in?%>
+          <%= link_to 'マイページへ', biz_user_path(current_biz_user.id), class:'btn btn-primary back-btn'  %>
+        <% end %>
+
+    </div>
+    <div class= 'title-container'>
+      <h2 class="name">
+        <%= @book.user.nickname %>さんの予約内容
+    </div>
+
+    <table class="detail-table">
+        <tr>
+          <th class="detail-item">予約日時</th>
+          <td class="detail-value"><%= @book.requested_at %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メンテメニュー</th>
+          <td class="detail-value"><%= @book.menu[:name] %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @book.comment %></td>
+        </tr>
+
+    </table>
+
+
+    
+    <div class='match-edit-delete-btn'>
+      <% if user_signed_in? && current_user.id == @book.user_id %>
+          <%= link_to "予約内容の修正", '#', class: "btn btn-outline-success" %>
+          <%= link_to "予約を削除", '#', method: :delete, class: "btn btn-outline-danger" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+</div>
+
+    <div class='cantainer-fluid top-box-match-show'>
+      <div class='cantainer-fluid first-box'>
+          <!-- article -->
+          <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <!-- section -->
+              <section class='back-ground'>
+
+                <hr />
+
+                <!-- 投稿一覧 -->
+                <div class="line-bc">
+
+                    <%# if current_user.id == @post_room.user_id %>
+                  <% if user_signed_in? %>
+
+                    <% @book_messages.each do |bm| %>
+
+                        <% if bm.is_user %>
+                            <!-- 右吹き出し -->
+                            <div>
+                              <div class="clearfix">
+                                <div class="float-end text-style">
+                                  <%= @book_room.user.nickname %>
+                                </div>
+                              </div>
+                              <div class="clearfix balloon2 float-end">
+                                <%= bm.content %>
+                              </div>
+                              <div class="clearfix">
+                                <div class="float-end">
+                                  <time style="font-size: 12px">
+                                  <%= bm.created_at.strftime('%m-%d %H:%M') %>
+                                  </time>
+                                </div>
+                              </div>
+                            </div>
+                            <br />
+
+                            <!-- 右吹き出し -->
+                        <% elsif %> 
+                            <!-- 左吹き出し -->
+                            <div>
+                              <div class="clearfix">
+                                <div class="float-start text-style">
+                                  <%= @book_room.biz_user.name %>
+                                </div>
+                              </div>
+                              <div class="clearfix balloon1 float-start">
+                                <%= bm.content %>
+                              </div>
+                              <div class="clearfix">
+                                <time style="font-size: 12px">
+                                <%= bm.created_at.strftime('%m-%d %H:%M') %>
+                                </time>
+                              </div>
+                            </div>
+                            <br />
+                            <!-- 左吹き出し -->
+                        <% end %> 
+
+                    <% end %>
+
+                  <% elsif biz_user_signed_in?%> 
+
+                    <% @book_messages.each do |bm| %>
+                        <% if bm.is_user %>
+                        <!-- 左吹き出し -->
+                              <div>
+                                <div class="clearfix">
+                                  <div class="float-start text-style">
+                                    <%= @boom_room.user.nickname %>
+                                  </div>
+                                </div>
+                                <div class="clearfix balloon1 float-start">
+                                  <%= bm.content %>
+                                </div>
+                                <div class="clearfix">
+                                  <div class="float-start">
+                                    <time style="font-size: 12px">
+                                    <%= bm.created_at.strftime('%m-%d %H:%M') %>
+                                    </time>
+                                  </div>
+                                </div>
+                              </div>
+                              <br />
+                              <!-- 左吹き出し -->
+                        <% elsif %> 
+                              <!-- 右吹き出し -->
+                              <div>
+                                <div class="clearfix">
+                                  <div class="float-end text-style">
+                                    <%= @book_room.biz_user.name %>
+                                  </div>
+                                </div>
+                                <div class="clearfix balloon2 float-end">
+                                  <%= bm.content %>
+                                </div>
+                                <div class="clearfix">
+                                  <div class="float-end">
+                                    <time style="font-size: 12px">
+                                    <%= bm.created_at.strftime('%m-%d %H:%M') %>
+                                    </time>
+                                  </div>
+                                </div>
+                              </div>
+                              <br />
+                              <!-- 右吹き出し -->
+                        <% end %> 
+                    <% end %>
+                  <% end %>
+
+                  <br />
+      
+                </div>
+              </section>
+              <!-- section -->
+            </article>
+            <!-- article -->
+
+          <div class='text-area'>
+              <%= form_with url: book_book_room_book_messages_path(@book.id, @book_room.id), local: true do |f| %>
+                <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
+                <%= f.submit '送信', class:'btn btn-light' %>
+              <% end %>
+          </div>
+
+      </div>
+    </div>

@@ -36,7 +36,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :book_rooms, only: [:index, :create]
+    resources :book_rooms, only: [:index] do
+      resources :book_messages, only: [:create]
+    end
   end
 
 end
