@@ -95,6 +95,55 @@
   </div>
 
 
+   <div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">予約内容調整中</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <% @books.each do |book| %>
+        <% if book.user_id == current_user.id %>
+          <% if book.book_room&.book_match %>
+          <% else %>
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+              </div>
+              <div>
+                <h2><%= book.biz_user.name %>への予約</h2>
+                <p><%= book.menu.name%></p>
+                <%= link_to 'チャットルームへ', book_book_rooms_path(book.id),  class:"btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>     
+    </div>
+  </div>
+
+    <div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">予約完了</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <% @books.each do |book| %>
+        <% if book.user_id == current_user.id %>
+          <% if book.book_room.book_match %>
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+              </div>
+              <div>
+                <h2><%= link_to book.book_room.book_match.menu.name, book_book_room_book_match_path(book.id, book.book_room.id, book.book_room.book_match.id) %>の予約</h2>
+                <p><%= book.book_room.book_match.start.strftime("%Y年 %m月 %d日 %H:%M") %></p>
+                <p><%= book.biz_user.name %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>     
+    </div>
+  </div>
+
 
   <div class="b-example-divider"></div>
 

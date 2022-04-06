@@ -14,42 +14,46 @@
     <div class= 'title-container'>
       <h2 class="name">
         <% if user_signed_in? %>
-        <%= @post_match.post_room.biz_user.name %>さんへのメンテ依頼
+        <%= @book_match.book_room.biz_user.name %>さんへの予約
         <% end %>
         <% if biz_user_signed_in? %>
-        <%= @post_match.post_room.user.nickname %>さんからのメンテ依頼
+        <%= @book_match.book_room.user.nickname %>さんからの予約
         <% end %>
       </h2>
     </div>
 
     <table class="detail-table">
         <tr>
-          <th class="detail-item">メンテ日時</th>
-          <td class="detail-value"><%= @post_match.maintain_at %></td>
+          <th class="detail-item">メンテ開始予定日時</th>
+          <td class="detail-value"><%= @book_match.start.strftime("%Y年 %m月 %d日 %H:%M") %></td>
+        </tr>
+           <tr>
+          <th class="detail-item">メンテ終了予定日時</th>
+          <td class="detail-value"><%= @book_match.end.strftime("%Y年 %m月 %d日 %H:%M") %></td>
         </tr>
         <tr>
           <th class="detail-item">メンテメニュー</th>
-          <td class="detail-value"><%= @post_match.menu[:name] %></td>
+          <td class="detail-value"><%= @book_match.menu[:name] %></td>
         </tr>
         <tr>
           <th class="detail-item">コメント</th>
-          <td class="detail-value"><%= @post_match.comment %></td>
+          <td class="detail-value"><%= @book_match.comment %></td>
         </tr>
         <tr>
-          <th class="detail-item">金額</th>
-          <td class="detail-value">￥<%= @post_match.charge %></td>
+          <th class="detail-item">メンテ費用</th>
+          <td class="detail-value">￥<%= @book_match.charge %></td>
         </tr>
     </table>
 
 
     
     <div class='match-edit-delete-btn'>
-      <% if user_signed_in? && current_user.id == @post_match.post_room.user_id %>
+      <% if user_signed_in? && current_user.id == @book_match.book_room.user_id %>
           <%= link_to "決済へ進む", '#',class: "btn btn-danger btn-lg" %>
       <% end %>
-      <% if biz_user_signed_in? && current_biz_user.id == @post_match.post_room.biz_user_id %>
-          <%= link_to "マッチング内容の修正", edit_user_post_post_room_post_match_path(@post_room.user_post.id, @post_room.id, @post_match.id), class: "btn btn-outline-success" %>
-          <%= link_to "マッチングを削除", user_post_post_room_path(@post_room.user_post_id, @post_room.id), method: :delete, class: "btn btn-outline-danger" %>
+      <% if biz_user_signed_in? && current_biz_user.id == @book_match.book_room.biz_user_id %>
+          <%= link_to "予約内容の修正", edit_book_book_room_book_match_path(@book_room.book_id, @book_room.id, @book_match.id), class: "btn btn-outline-success" %>
+          <%= link_to "予約を削除", book_path(@book_match.book_room.book_id), method: :delete, class: "btn btn-outline-danger" %>
       <% end %>
     </div>
   </div>
@@ -73,23 +77,23 @@
                     <%# if current_user.id == @post_room.user_id %>
                   <% if user_signed_in? %>
 
-                    <% @post_messages.each do |pm| %>
+                    <% @book_messages.each do |bm| %>
 
-                        <% if pm.is_user %>
+                        <% if bm.is_user %>
                             <!-- 右吹き出し -->
                             <div>
                               <div class="clearfix">
                                 <div class="float-end text-style">
-                                  <%= @post_room.user.nickname %>
+                                  <%= @book_room.user.nickname %>
                                 </div>
                               </div>
                               <div class="clearfix balloon2 float-end">
-                                <%= pm.content %>
+                                <%= bm.content %>
                               </div>
                               <div class="clearfix">
                                 <div class="float-end">
                                   <time style="font-size: 12px">
-                                  <%= pm.created_at.strftime('%m-%d %H:%M') %>
+                                  <%= bm.created_at.strftime('%m-%d %H:%M') %>
                                   </time>
                                 </div>
                               </div>
@@ -102,15 +106,15 @@
                             <div>
                               <div class="clearfix">
                                 <div class="float-start text-style">
-                                  <%= @post_room.biz_user.name %>
+                                  <%= @book_room.biz_user.name %>
                                 </div>
                               </div>
                               <div class="clearfix balloon1 float-start">
-                                <%= pm.content %>
+                                <%= bm.content %>
                               </div>
                               <div class="clearfix">
                                 <time style="font-size: 12px">
-                                <%= pm.created_at.strftime('%m-%d %H:%M') %>
+                                <%= bm.created_at.strftime('%m-%d %H:%M') %>
                                 </time>
                               </div>
                             </div>
@@ -122,22 +126,22 @@
 
                   <% elsif biz_user_signed_in?%> 
 
-                    <% @post_messages.each do |pm| %>
-                        <% if pm.is_user %>
+                    <% @book_messages.each do |bm| %>
+                        <% if bm.is_user %>
                         <!-- 左吹き出し -->
                               <div>
                                 <div class="clearfix">
                                   <div class="float-start text-style">
-                                    <%= @post_room.user.nickname %>
+                                    <%= @book_room.user.nickname %>
                                   </div>
                                 </div>
                                 <div class="clearfix balloon1 float-start">
-                                  <%= pm.content %>
+                                  <%= bm.content %>
                                 </div>
                                 <div class="clearfix">
                                   <div class="float-start">
                                     <time style="font-size: 12px">
-                                    <%= pm.created_at.strftime('%m-%d %H:%M') %>
+                                    <%= bm.created_at.strftime('%m-%d %H:%M') %>
                                     </time>
                                   </div>
                                 </div>
@@ -149,16 +153,16 @@
                               <div>
                                 <div class="clearfix">
                                   <div class="float-end text-style">
-                                    <%= @post_room.biz_user.name %>
+                                    <%= @book_room.biz_user.name %>
                                   </div>
                                 </div>
                                 <div class="clearfix balloon2 float-end">
-                                  <%= pm.content %>
+                                  <%= bm.content %>
                                 </div>
                                 <div class="clearfix">
                                   <div class="float-end">
                                     <time style="font-size: 12px">
-                                    <%= pm.created_at.strftime('%m-%d %H:%M') %>
+                                    <%= bm.created_at.strftime('%m-%d %H:%M') %>
                                     </time>
                                   </div>
                                 </div>
@@ -178,7 +182,7 @@
             <!-- article -->
 
           <div class='text-area'>
-              <%= form_with url:user_post_post_room_post_messages_path(@post_room.user_post_id, @post_room.id), local: true do |f| %>
+              <%= form_with url: book_book_room_book_messages_path(@book_room.book_id, @book_room.id), local: true do |f| %>
                 <%= f.text_field :content, class: 'text-field', id:'', placeholder:'コメント'%>
                 <%= f.submit '送信', class:'btn btn-light' %>
               <% end %>

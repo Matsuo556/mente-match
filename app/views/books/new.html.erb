@@ -1,0 +1,39 @@
+<div class="text-center">
+<%= form_with model: @book, class: 'new-post', local: true do |f| %>
+    <%= link_to '仮ボタン TOPへ戻る', '/'%>
+    <%# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
+
+    <div class='page-explanation'>
+    <h1 class="h3 mb-3 fw-normal">メンテ要望内容を入力</h1>
+    </div>
+
+    <div class="form-top">
+    <%= render partial:'users/shared/error_messages', locals: { model: f.object } %>
+    </div>
+
+    <div class="post-field">
+      <%= f.label :requested_at, 'メンテ依頼日', class: "post-label" %>
+      <%# <%= f.date_field :requested_at, class:"post-content", id:"" %>
+      <%# <%= f.time_field :requested_at, class:"post-content", id:"" %>
+      <%= f.datetime_local_field :requested_at, class:"post-content", id:"" %>
+
+    </div>
+
+    <div class="post-field">
+      <%= f.label :menu_id, 'メンテナンスメニュー', class: "post-label" %>
+      <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"post-content", id:"menu-select-status"}) %>
+    </div>
+
+
+    <div class="post-field">
+      <%= f.label :comment, 'コメント', class: "post-label" %>
+      <%= f.text_area :comment, class:"post-content", placeholder:"依頼したい内容の詳細や個別のリクエスト、その他質問などがあれば記載します。" ,rows:"10" ,maxlength:"1000" %>
+    </div>
+
+    <%= f.hidden_field :biz_user_id, value: @biz_user.id %>
+
+
+    <%= f.submit "予約を申し込む" ,class:"w-100 btn btn-lg btn-primary" %>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  <% end %>
+</div>

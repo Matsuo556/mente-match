@@ -14,9 +14,13 @@ class PostRoomsController < ApplicationController
   end
 
   def destroy
-    @post_room = PostRoom.find(params[:id])
-    @post_room.destroy
-    redirect_to user_path(current_user.id)
+      @post_room = PostRoom.find(params[:id])
+      @post_room.destroy
+      if user_signed_in?
+        redirect_to user_path(current_user.id)
+      elsif biz_user_signed_in?
+        redirect_to biz_user_path(current_biz_user.id)
+      end
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_080408) do
+ActiveRecord::Schema.define(version: 2022_04_05_051242) do
 
   create_table "biz_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -29,6 +29,50 @@ ActiveRecord::Schema.define(version: 2022_03_28_080408) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_biz_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_biz_users_on_reset_password_token", unique: true
+  end
+
+  create_table "book_matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "start", null: false
+    t.datetime "end", null: false
+    t.integer "menu_id", null: false
+    t.text "comment"
+    t.integer "charge", null: false
+    t.bigint "book_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_room_id"], name: "index_book_matches_on_book_room_id"
+  end
+
+  create_table "book_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.boolean "is_user", null: false
+    t.bigint "book_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_room_id"], name: "index_book_messages_on_book_room_id"
+  end
+
+  create_table "book_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "biz_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["biz_user_id"], name: "index_book_rooms_on_biz_user_id"
+    t.index ["book_id"], name: "index_book_rooms_on_book_id"
+    t.index ["user_id"], name: "index_book_rooms_on_user_id"
+  end
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "requested_at", null: false
+    t.integer "menu_id", null: false
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "biz_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["biz_user_id"], name: "index_books_on_biz_user_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "post_matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,6 +135,13 @@ ActiveRecord::Schema.define(version: 2022_03_28_080408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "book_matches", "book_rooms"
+  add_foreign_key "book_messages", "book_rooms"
+  add_foreign_key "book_rooms", "biz_users"
+  add_foreign_key "book_rooms", "books"
+  add_foreign_key "book_rooms", "users"
+  add_foreign_key "books", "biz_users"
+  add_foreign_key "books", "users"
   add_foreign_key "post_matches", "post_rooms"
   add_foreign_key "post_messages", "post_rooms"
   add_foreign_key "post_rooms", "biz_users"

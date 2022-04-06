@@ -30,8 +30,16 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
-
   resources :biz_users, only: :show
 
+  resources :books, only: [:index, :show, :new, :create, :destroy] do
+    collection do
+      get 'search'
+    end
+    resources :book_rooms, only: [:index] do
+      resources :book_messages, only: [:create]
+      resources :book_matches, only: [:new, :create, :show, :edit, :update]
+    end
+  end
 
 end
