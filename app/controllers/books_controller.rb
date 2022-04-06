@@ -22,7 +22,6 @@ class BooksController < ApplicationController
     end
     @q = BizUser.ransack(params[:q])
     @biz_users = @q.result.page(params[:page]).per(10)
-    binding.pry
   end
 
   def show
