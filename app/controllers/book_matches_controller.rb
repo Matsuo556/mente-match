@@ -16,6 +16,10 @@ class BookMatchesController < ApplicationController
     end
   end
 
+  def show
+  end
+  
+
   private
 
   def book_match_params
