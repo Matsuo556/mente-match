@@ -49,7 +49,7 @@
       <% end %>
       <% if biz_user_signed_in? && current_biz_user.id == @post_match.post_room.biz_user_id %>
           <%= link_to "マッチング内容の修正", edit_user_post_post_room_post_match_path(@post_room.user_post.id, @post_room.id, @post_match.id), class: "btn btn-outline-success" %>
-          <%= link_to "マッチングを削除", '#', method: :delete, class: "btn btn-outline-danger" %>
+          <%= link_to "マッチングを削除", user_post_post_room_path(@post_room.user_post_id, @post_room.id), method: :delete, class: "btn btn-outline-danger" %>
       <% end %>
     </div>
   </div>
