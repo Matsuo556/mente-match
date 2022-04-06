@@ -23,6 +23,20 @@ class BookMatchesController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:book_id])
+    @book_room = BookRoom.find(params[:book_room_id])
+    @book_match = BookMatch.find(params[:id])
+  end
+
+  def update
+    @book_match = BookMatch.find(params[:id])
+    if @book_match.update(book_match_params)
+      redirect_to action: :show
+   else
+      @book = Book.find(params[:book_id])
+      @book_room = BookRoom.find(params[:book_room_id])
+      render :edit
+   end
   end
 
   private
