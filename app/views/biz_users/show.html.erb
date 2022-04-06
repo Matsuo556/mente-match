@@ -95,7 +95,7 @@
     <h2 class="pb-2 border-bottom">予約内容調整中</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <% @books.each do |book| %>
-        <% if book.biz_user.id == current_biz_user.id %>
+        <% if book.biz_user_id == current_biz_user.id %>
           <% if book.book_room&.book_match %>
           <% else %>
             <div class="col d-flex align-items-start">
