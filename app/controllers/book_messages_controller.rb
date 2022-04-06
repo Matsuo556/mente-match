@@ -9,15 +9,15 @@ class BookMessagesController < ApplicationController
       @book_message.is_user = false
     end
 
-    #post_room = @post_message.post_room
-    #マッチングが成立している場合はpost_matchのshowアクションへ
-    #if @post_message.save && post_room.post_match
-      #redirect_to user_post_post_room_post_match_path(params[:user_post_id], post_room.id, post_room.post_match.id) and return
-    #elsif post_room.post_match
-      #redirect_to user_post_post_room_post_match_path(params[:user_post_id], post_room.id, post_room.post_match.id) and return
-    #end
+    book_room = @book_message.book_room
+    #マッチングが成立している場合はbook_matchのshowアクションへ
+    if @book_message.save && book_room.book_match
+      redirect_to book_book_room_book_match_path(params[:book_id], book_room.id, book_room.book_match.id) and return
+    elsif book_room.book_match
+      redirect_to book_book_room_book_match_path(params[:book_id], book_room.id, book_room.book_match.id) and return
+    end
 
-    #マッチングが成立していない場合はpost_roomのindexアクションへ
+    #マッチングが成立していない場合はbook_roomのindexアクションへ
     if @book_message.save
       redirect_to book_book_rooms_path(params[:book_id]) and return
     else

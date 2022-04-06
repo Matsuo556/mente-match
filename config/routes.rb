@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :book_rooms, only: [:index] do
       resources :book_messages, only: [:create]
-      resources :book_matches, only: [:new, :create, :show]
+      resources :book_matches, only: [:new, :create, :show, :edit]
     end
   end
 

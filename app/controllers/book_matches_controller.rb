@@ -17,8 +17,13 @@ class BookMatchesController < ApplicationController
   end
 
   def show
+    @book_match = BookMatch.find(params[:id])
+    @book_room = BookRoom.find(params[:book_room_id])
+    @book_messages = @book_room.book_messages
   end
-  
+
+  def edit
+  end
 
   private
 
