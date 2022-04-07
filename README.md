@@ -99,11 +99,18 @@
 ・マッチング機能
 
 ### 予約
-詳細要件検討中
+・新規予約申請機能
+
+・予約申請詳細表示、チャットルーム機能
+
+・予約内容編集機能
+
+・予約申請削除機能
+
+・予約成立機能
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/a91be6768435f86efa43343a32e1228c.png)](https://gyazo.com/a91be6768435f86efa43343a32e1228c)
-# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/8e054beca5a3fb4268c690d4828d165b.png)](https://gyazo.com/8e054beca5a3fb4268c690d4828d165b)# 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/4365c39a3ebf6c01586d3e00cb8a6bb5.png)](https://gyazo.com/4365c39a3ebf6c01586d3e00cb8a6bb5)
 
 [![Image from Gyazo](https://i.gyazo.com/3806cec3850885b40f710871a208756e.png)](https://gyazo.com/3806cec3850885b40f710871a208756e)
