@@ -1,4 +1,6 @@
 class PostRoomsController < ApplicationController
+  before_action :authenticate_any!
+  before_action :user_check, only: [:index, :destroy]
 
   def index
     @user_post = UserPost.find(params[:user_post_id])
@@ -27,6 +29,25 @@ class PostRoomsController < ApplicationController
   
   def post_room_params
    params.require(:post_room).permit(user_id: params[:post_room][:user_id]).merge(user_post_id: params[:user_post_id], user_id: params[:post_room][:user_id], biz_user_id: current_biz_user.id)
+  end
+
+  def authenticate_any!
+    if biz_user_signed_in?
+      true
+    else
+      authenticate_user!
+    end
+  end
+
+
+  def user_check
+    @user_post = UserPost.find(params[:user_post_id])
+    binding.pry
+    if user_signed_in? && current_user.id != @user_post.post_room.user_id
+      redirect_to root_path
+    elsif biz_user_signed_in? && current_biz_user.id != @user_post.post_room.biz_user_id
+      redirect_to root_path
+    end
   end
 
 end
