@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
-  before_action :move_to_root_path, only: [:show]
+  before_action :authenticate_user!, only: :show
+  before_action :move_to_root_path, only: :show
   
 
   def show

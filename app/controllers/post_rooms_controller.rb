@@ -1,5 +1,5 @@
 class PostRoomsController < ApplicationController
-  before_action :authenticate_any!
+  before_action :authenticate_any!, only: :index
   before_action :user_check, only: [:index, :destroy]
 
   def index
