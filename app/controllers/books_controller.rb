@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :destroy]
   
   def index
     @biz_users = BizUser.all.page(params[:page]).per(10)

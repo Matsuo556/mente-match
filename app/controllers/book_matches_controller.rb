@@ -1,4 +1,6 @@
 class BookMatchesController < ApplicationController
+  before_action :authenticate_any!, only: [:new, :show, :edit]
+  before_action :user_check, only: [:new, :show, :edit]
 
   def new
     @book = Book.find(params[:book_id])
@@ -45,5 +47,21 @@ class BookMatchesController < ApplicationController
     params.require(:book_match).permit(:start, :end, :menu_id, :comment, :charge).merge(book_room_id: params[:book_room_id])
   end
 
+  def authenticate_any!
+    if biz_user_signed_in?
+      true
+    else
+      authenticate_user!
+    end
+  end
+
+  def user_check
+    @book = Book.find(params[:book_id])
+    if user_signed_in? && current_user.id != @book.book_room&.user_id
+      redirect_to root_path
+    elsif biz_user_signed_in? && current_biz_user.id != @book.book_room&.biz_user_id
+      redirect_to root_path
+    end
+  end
 
 end

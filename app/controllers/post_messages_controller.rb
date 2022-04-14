@@ -14,7 +14,7 @@ class PostMessagesController < ApplicationController
     #マッチングが成立している場合はpost_matchのshowアクションへ
     if @post_message.save && post_room.post_match
       redirect_to user_post_post_room_post_match_path(params[:user_post_id], post_room.id, post_room.post_match.id) and return
-    elsif post_room.post_match
+    elsif post_room&.post_match
       redirect_to user_post_post_room_post_match_path(params[:user_post_id], post_room.id, post_room.post_match.id) and return
     end
     #マッチングが成立していない場合はpost_roomのindexアクションへ
